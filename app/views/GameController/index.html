@@ -15,9 +15,12 @@
 </table>
 
 <div id="log">
+	<ul>
+		<li>There have been ${game.moves.size()} moves</li>
 	#{list game.moves, as:'move'}
-	    ${move} <br/>
+	    <li>${move}</li>
 	#{/list}
+	</ul>
 </div>
 
 <script type="text/javascript" src="@{'/public/javascripts/tictactoe.js'}"></script>
