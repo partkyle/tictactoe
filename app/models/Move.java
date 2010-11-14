@@ -18,7 +18,7 @@ public class Move extends Model {
 	public boolean equals(Object other) {
 		if (other instanceof Move) {
 			Move m = (Move) other;
-			return game.equals(m.game) && x == m.x && y == m.y;
+			return x == m.x && y == m.y;
 		}
 		return false;
 	}
