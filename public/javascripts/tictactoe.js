@@ -14,6 +14,13 @@ $(function() {
 				$('#log > ul').append('<li>INVALID MOVE</li>');
 			} else {
 				console.log(json);
+				$.each(json, function(x, v){
+					$.each(v, function(y, className){
+						if (className != null) {
+							$('td[data-x='+x+'][data-y='+y+']').addClass(className);
+						}
+					});
+				});
 			}
 		}, 'json');
 	});
