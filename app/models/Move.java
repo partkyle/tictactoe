@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import play.db.jpa.Model;
 
@@ -13,6 +14,8 @@ public class Move extends Model {
 	public int y;
 	@Column(nullable = false)
 	public Player player = Player.Player;
+	@Transient
+	public boolean valid = true;
 
 	@ManyToOne(optional = false)
 	public Game game;

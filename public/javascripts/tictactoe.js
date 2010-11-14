@@ -10,9 +10,12 @@ $(function() {
 	$('table td').bind('click', function() {
 		var that = $(this);
 	    $.post(moveUrl, {'m.x': that.data('x'), 'm.y': that.data('y')}, function(json) {
-	    	console.log(json);
-	    	$('#log').append(json).append('<br/>');
-	    });
+	    	if (!json.valid) {
+	    		$('#log > ul').append('<li>INVALID MOVE</li>');
+	    	} else {
+	    		console.log(json);
+	    	}
+	    }, 'json');
 	});
 
 });

@@ -25,9 +25,10 @@ public class GameController extends Controller {
 			game.moves.add(m);
 			game.save();
 			System.out.println(game.getGameState());
-			renderHtml(m);
+			renderJSON(game.getGameState());
 		} else {
-			renderHtml("INVALID MOVE - That move has already been made");
+			m.valid = false;
+			renderJSON(m);
 		}
 	}
 }
