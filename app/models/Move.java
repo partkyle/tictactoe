@@ -1,5 +1,6 @@
 package models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -10,6 +11,8 @@ import play.db.jpa.Model;
 public class Move extends Model {
 	public int x;
 	public int y;
+	@Column(nullable = false)
+	public Player player = Player.Player;
 
 	@ManyToOne(optional = false)
 	public Game game;
@@ -25,6 +28,6 @@ public class Move extends Model {
 
 	@Override
 	public String toString() {
-		return String.format("Move[%d]: %d, %d", game.id, x, y);
+		return String.format("Game[%d] - Move[%s]: %d, %d", game.id, player, x, y);
 	}
 }
