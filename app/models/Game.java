@@ -13,7 +13,16 @@ import play.db.jpa.Model;
 public class Game extends Model {
 	@OneToMany(mappedBy = "game", cascade = { CascadeType.ALL })
 	public List<Move> moves = new ArrayList<Move>();
-	
+
+	@Override
+	public boolean equals(Object other) {
+		if (other instanceof Game) {
+			Game g = (Game) other;
+			return id == g.id;
+		}
+		return false;
+	}
+
 	@Override
 	public String toString() {
 		return "Game " + id;
