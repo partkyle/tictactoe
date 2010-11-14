@@ -1,10 +1,17 @@
 #{extends 'main.html' /}
 #{set title:'Tic Tac Toe' /}
+<script type="text/javascript">
+	var moveUrl = '@{makeMove()}';
+</script>
 
 <table class="tictac">
-    <tr><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td></tr>
+#{list [0,1,2], as:'i'}
+	<tr>
+    #{list [0,1,2], as:'j'}
+    	<td data-x="${i}" data-y="${j}"></td>
+	#{/list}
+	</tr>
+#{/list}
 </table>
 
 <script type="text/javascript" src="@{'/public/javascripts/tictactoe.js'}"></script>

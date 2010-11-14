@@ -6,4 +6,10 @@ $(function() {
 	}).bind('mouseleave', function() {
 	    $(this).removeClass('hover');
 	});
+	
+	$('table td').bind('click', function() {
+		var that = $(this);
+	    $.post(moveUrl, {x: that.data('x'), y: that.data('y')});
+	});
+
 });
