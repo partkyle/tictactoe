@@ -1,6 +1,7 @@
 package controllers;
 
-import play.mvc.*;
+import models.Move;
+import play.mvc.Controller;
 
 public class GameController extends Controller {
 
@@ -8,7 +9,7 @@ public class GameController extends Controller {
 		render();
 	}
 
-	public static void makeMove(int x, int y) {
-		System.out.println(String.format("Move: (%d, %d)", x, y));
+	public static void makeMove(Move m) {
+		System.out.println(String.format("Move: (%d, %d)", m.x, m.y));
 	}
 }

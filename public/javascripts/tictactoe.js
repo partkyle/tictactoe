@@ -9,7 +9,7 @@ $(function() {
 	
 	$('table td').bind('click', function() {
 		var that = $(this);
-	    $.post(moveUrl, {x: that.data('x'), y: that.data('y')});
+	    $.post(moveUrl, { 'm.x': that.data('x'), 'm.y': that.data('y') });
 	});
 
 });
