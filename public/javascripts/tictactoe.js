@@ -12,7 +12,7 @@ $(function() {
 	    $.post(moveUrl, { 'm.x': that.data('x'), 'm.y': that.data('y') }, function(json) {
 	    	console.log(json);
 	    	$('#log').html(json);
-	    }, 'json');
+	    });
 	});
 
 });

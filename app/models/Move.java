@@ -13,4 +13,9 @@ public class Move extends Model {
 
 	@ManyToOne(optional = false)
 	public Game game;
+
+	@Override
+	public String toString() {
+		return String.format("Move[%d]: %d, %d", game.id, x, y);
+	}
 }

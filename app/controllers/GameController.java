@@ -23,5 +23,6 @@ public class GameController extends Controller {
 		m.save();
 		game.moves.add(m);
 		game.save();
+		renderHtml(game.moves);
 	}
 }

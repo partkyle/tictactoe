@@ -13,4 +13,9 @@ import play.db.jpa.Model;
 public class Game extends Model {
 	@OneToMany(mappedBy = "game", cascade = { CascadeType.ALL })
 	public List<Move> moves = new ArrayList<Move>();
+	
+	@Override
+	public String toString() {
+		return "Game " + id;
+	}
 }
