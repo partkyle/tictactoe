@@ -24,6 +24,7 @@ public class GameController extends Controller {
 			m.save();
 			game.moves.add(m);
 			game.save();
+			System.out.println(game.getGameState());
 			renderHtml(m);
 		} else {
 			renderHtml("INVALID MOVE - That move has already been made");

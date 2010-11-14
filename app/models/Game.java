@@ -14,6 +14,14 @@ public class Game extends Model {
 	@OneToMany(mappedBy = "game", cascade = { CascadeType.ALL })
 	public List<Move> moves = new ArrayList<Move>();
 
+	public Player[][] getGameState() {
+		Player[][] gameState = { { null, null, null }, { null, null, null }, { null, null, null } };
+		for (Move move : moves) {
+			gameState[move.x][move.y] = move.player;
+		}
+		return gameState;
+	}
+
 	@Override
 	public boolean equals(Object other) {
 		if (other instanceof Game) {
