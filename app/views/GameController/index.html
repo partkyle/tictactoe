@@ -7,8 +7,8 @@
 <table class="tictac">
 #{list [0,1,2], as:'i'}
 	<tr>
-    #{list [0,1,2], as:'j'}
-    	<td data-x="${i}" data-y="${j}"></td>
+	#{list [0,1,2], as:'j'}
+		<td data-x="${i}" data-y="${j}" class="${game.state[i][j]}"></td>
 	#{/list}
 	</tr>
 #{/list}
@@ -18,7 +18,7 @@
 	<ul>
 		<li>There have been ${game.moves.size()} moves</li>
 	#{list game.moves, as:'move'}
-	    <li>${move}</li>
+		<li>${move}</li>
 	#{/list}
 	</ul>
 </div>

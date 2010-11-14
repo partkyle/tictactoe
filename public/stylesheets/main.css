@@ -1,8 +1,16 @@
 table.tictac td {
-    border: 1px solid black;  
-    padding: 50px;
+	border: 1px solid black;
+	padding: 50px;
 }
 
 td.hover {
-    background-color: #FFF3CC;   
+	background-color: #FFF3CC;
+}
+
+td.Player {
+	background-color: #00FF00;
+}
+
+td.Computer {
+	background-color: #FF0000;
 }

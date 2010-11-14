@@ -24,8 +24,8 @@ public class GameController extends Controller {
 			m.save();
 			game.moves.add(m);
 			game.save();
-			System.out.println(game.getGameState());
-			renderJSON(game.getGameState());
+			System.out.println(game.getState());
+			renderJSON(game.getState());
 		} else {
 			m.valid = false;
 			renderJSON(m);
