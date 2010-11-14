@@ -1,0 +1,8 @@
+table.tictac td {
+    border: 1px solid black;  
+    padding: 50px;
+}
+
+td.hover {
+    background-color: #FFF3CC;   
+}
