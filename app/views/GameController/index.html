@@ -1,7 +1,7 @@
 #{extends 'main.html' /}
 #{set title:'Tic Tac Toe' /}
 <script type="text/javascript">
-	var moveUrl = '@{makeMove()}';
+	var moveUrl = '@{makeMove(game.id)}';
 </script>
 
 <table class="tictac">
@@ -13,5 +13,11 @@
 	</tr>
 #{/list}
 </table>
+
+<div id="log">
+	#{list game.moves, as:'move'}
+	    ${move.id}: ${move.x}, ${move.y} <br/>
+	#{/list}
+</div>
 
 <script type="text/javascript" src="@{'/public/javascripts/tictactoe.js'}"></script>
