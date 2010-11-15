@@ -22,9 +22,13 @@ public class Game extends Model {
 		return gameState;
 	}
 
-	public void addMove(Move m) {
-		moves.add(m);
-		m.game = this;
+	public void addMove(Move move) {
+		if (!moves.contains(move)) {
+			moves.add(move);
+			move.game = this;
+		} else {
+			System.out.println("Ignored duplicate move");
+		}
 	}
 
 	@Override
