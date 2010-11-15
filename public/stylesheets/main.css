@@ -25,9 +25,13 @@ td.hover {
 }
 
 td.Player {
-	background-color: #00FF00;
+	background-image: url(/public/images/x.png);
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 
 td.Computer {
-	background-color: #FF0000;
+	background-image: url(/public/images/o.png);
+	background-repeat: no-repeat;
+	background-position: center center;
 }
