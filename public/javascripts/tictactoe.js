@@ -14,8 +14,8 @@ $(function() {
 				$('#log > ul').append('<li>'+json.message+'</li>');
 			} else {
 				console.log(json);
-				$.each(json.state, function(x, val){
-					$.each(val, function(y, className){
+				$.each(json.state, function(y, val){
+					$.each(val, function(x, className){
 						if (className != null) {
 							$('td[data-x='+x+'][data-y='+y+']').addClass(className);
 						}

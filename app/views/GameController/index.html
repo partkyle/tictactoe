@@ -5,12 +5,11 @@
 </script>
 
 <a href="@{GameController.newGame()}">Create new game</a>
-
-<table class="tictac">
-#{list [0,1,2], as:'i'}
+<table class="tictac#{if !util.TicTacToeAI.isStillPlaying(game.state)} done#{/if}">
+#{list [0,1,2], as:'y'}
 	<tr>
-	#{list [0,1,2], as:'j'}
-		<td data-x="${i}" data-y="${j}" class="${game.state[i][j]}"></td>
+	#{list [0,1,2], as:'x'}
+		<td data-x="${x}" data-y="${y}" class="${game.state[y][x]}"></td>
 	#{/list}
 	</tr>
 #{/list}

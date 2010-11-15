@@ -17,7 +17,7 @@ public class Game extends Model {
 	public Player[][] getState() {
 		Player[][] gameState = { { null, null, null }, { null, null, null }, { null, null, null } };
 		for (Move move : moves) {
-			gameState[move.x][move.y] = move.player;
+			gameState[move.y][move.x] = move.player;
 		}
 		return gameState;
 	}
