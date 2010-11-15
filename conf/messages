@@ -2,3 +2,5 @@
 # For example, for French create a messages.fr file
 #
 movetaken=INVALID MOVE - That move has already been made.
+winner=Game over. %s is the winner!
+draw=Cat's game. No winner, No loser... :(

@@ -3,10 +3,9 @@ package models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 
 import play.db.jpa.Model;
+import play.i18n.Messages;
 
 @Entity
 public class Move extends Model {
@@ -43,6 +42,6 @@ public class Move extends Model {
 
 	@Override
 	public String toString() {
-		return String.format("Move(%s): %d, %d", player, x, y);
+		return Messages.get("move", player, x, y);
 	}
 }

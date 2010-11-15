@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
+import play.i18n.Messages;
 
 @Entity
 public class Game extends Model {
@@ -47,6 +48,6 @@ public class Game extends Model {
 
 	@Override
 	public String toString() {
-		return "Game " + id;
+		return Messages.get("game", id);
 	}
 }

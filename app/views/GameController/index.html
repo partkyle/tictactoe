@@ -1,13 +1,16 @@
 #{extends 'main.html' /}
-#{set title:'Tic Tac Toe' /}
+#{set title: 'Tic Tac Toe' /}
+#{i18n /}
+
 <script type="text/javascript">
 	var moveUrl = '@{makeMove(game.id)}';
 </script>
 
+
 <div class="center">
-	<a href="@{GameController.newGame()}">Create new game</a>
+	<a href="@{GameController.newGame()}">&{'newgame'}</a>
 </div>
-<table class="tictac#{if !util.TicTacToeAI.isStillPlaying(game.state)} done#{/if}">
+<table class="tictac#{ifnot util.TicTacToeAI.isStillPlaying(game.state)} done#{/ifnot}">
 #{list [0,1,2], as:'y'}
 	<tr>
 	#{list [0,1,2], as:'x'}
@@ -22,6 +25,16 @@
 	#{list game.moves, as:'move'}
 		<li>${move}</li>
 	#{/list}
+	#{ifnot util.TicTacToeAI.isStillPlaying(game.state)}
+		<li>
+		#{if util.TicTacToeAI.getWinner(game.state) == null}
+		    &{'draw'}
+		#{/if}
+		#{else}
+			&{'winner', util.TicTacToeAI.getWinner(game.state)}
+		#{/else}
+		</li>
+	#{/ifnot}
 	</ul>
 </div>
 
