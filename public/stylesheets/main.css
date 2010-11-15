@@ -1,3 +1,14 @@
+body {
+  text-align: center;
+  min-width: 500px;
+}
+#content {
+  text-align: left;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 table.tictac td {
 	border: 1px solid black;
 	padding: 50px;
