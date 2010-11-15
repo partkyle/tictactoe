@@ -19,6 +19,12 @@ public class Move extends Model {
 	@ManyToOne(optional = false)
 	public Game game;
 
+	public Move(int x, int y, Player player) {
+		this.x = x;
+		this.y = y;
+		this.player = player;
+	}
+
 	@Override
 	public boolean equals(Object other) {
 		if (other instanceof Move) {
