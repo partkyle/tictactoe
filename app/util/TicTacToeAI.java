@@ -1,5 +1,8 @@
 package util;
 
+import java.util.List;
+
+import models.Game;
 import models.Move;
 import models.Player;
 
@@ -10,6 +13,17 @@ public class TicTacToeAI {
 		m.y = 0;
 		m.player = Player.Computer;
 		return m;
+	}
+
+	public static boolean isStillPlaying(Player[][] state) {
+		int count = 0;
+		for (Player[] rows : state) {
+			for (Player player : rows) {
+				if (player != null)
+					count++;
+			}
+		}
+		return count < 9 && getWinner(state) == null;
 	}
 
 	public static Player getWinner(Player[][] state) {
