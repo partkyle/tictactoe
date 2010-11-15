@@ -20,7 +20,14 @@ public class GameController extends Controller {
 		Game game = Game.findById(gameId);
 		if (!game.moves.contains(m)) {
 			game.addMove(m);
+
+			// Computer's Move
+			Move compMove = TicTacToeAI.findNextMove(game.getState());
+			game.addMove(compMove);
+
+			// Save the game state
 			game.save();
+
 			renderJSON(game.getState());
 		} else {
 			m.valid = false;
