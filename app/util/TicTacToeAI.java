@@ -1,6 +1,7 @@
 package util;
 
 import java.util.List;
+import java.util.Random;
 
 import models.Game;
 import models.Move;
@@ -10,7 +11,10 @@ public class TicTacToeAI {
 	public static Move findNextMove(Player[][] state) {
 		Move m = null;
 		while (m == null) {
-			m = new Move(0, 0, Player.Computer);
+			Random r = new Random();
+			m = new Move(r.nextInt(3), r.nextInt(3), Player.Computer);
+			if (state[m.y][m.x] != null)
+				m = null;
 		}
 
 		return m;
