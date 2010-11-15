@@ -1,3 +1,4 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
+movetaken=INVALID MOVE - That move has already been made.

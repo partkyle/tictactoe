@@ -1,7 +1,9 @@
 package controllers;
 
 import models.Game;
+import models.GameState;
 import models.Move;
+import play.i18n.Messages;
 import play.mvc.Controller;
 import util.TicTacToeAI;
 
@@ -28,11 +30,16 @@ public class GameController extends Controller {
 
 			// Save the game state
 			game.save();
-
-			renderJSON(game.getState());
+			GameState gameState = new GameState();
+			gameState.state = game.getState();
+			gameState.moveLog.add(m.toString());
+			gameState.moveLog.add(compMove.toString());
+			renderJSON(gameState);
 		} else {
-			m.valid = false;
-			renderJSON(m);
+			GameState gameState = new GameState();
+			gameState.message = Messages.get("movetaken");
+			gameState.validMove = false;
+			renderJSON(gameState);
 		}
 	}
 }

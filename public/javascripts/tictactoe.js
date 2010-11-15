@@ -10,16 +10,18 @@ $(function() {
 	$('table td').bind('click', function() {
 		var that = $(this);
 		$.post(moveUrl, {'m.x': that.data('x'), 'm.y': that.data('y')}, function(json) {
-			if (!!json.valid) {
-				$('#log > ul').append('<li>INVALID MOVE</li>');
+			if (!json.validMove) {
+				$('#log > ul').append('<li>'+json.message+'</li>');
 			} else {
-				console.log(json);
-				$.each(json, function(x, v){
-					$.each(v, function(y, className){
+				$.each(json.state, function(x, val){
+					$.each(val, function(y, className){
 						if (className != null) {
 							$('td[data-x='+x+'][data-y='+y+']').addClass(className);
 						}
 					});
+				});
+				$.each(json.moveLog, function(k, val) {
+					$('#log > ul').append('<li>'+val+'</li>')
 				});
 			}
 		}, 'json');
