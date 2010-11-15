@@ -12,9 +12,9 @@
 </div>
 <table class="tictac#{ifnot util.TicTacToeAI.isStillPlaying(game.state)} done#{/ifnot}">
 #{list [0,1,2], as:'y'}
-	<tr>
+	<tr class="#{if y == 0}first#{/if}#{if y == 2}last#{/if}">
 	#{list [0,1,2], as:'x'}
-		<td data-x="${x}" data-y="${y}" class="${game.state[y][x]}"></td>
+		<td data-x="${x}" data-y="${y}" class="${game.state[y][x]}#{if x == 0} first#{/if}#{if x == 2} last#{/if}"></td>
 	#{/list}
 	</tr>
 #{/list}

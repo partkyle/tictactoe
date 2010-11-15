@@ -19,16 +19,16 @@ table.tictac {
 	border-collapse: collapse;
 }
 
-table.tictac tr:first-child td {
+table.tictac tr.first td {
 	border-bottom: 1px solid black;
 }
-table.tictac tr:last-child td {
+table.tictac tr.last td {
 	border-top: 1px solid black;
 }
-table.tictac tr td:first-child {
+table.tictac tr td.first {
 	border-right: 1px solid black;
 }
-table.tictac tr td:last-child {
+table.tictac tr td.last {
 	border-left: 1px solid black;
 }
 
