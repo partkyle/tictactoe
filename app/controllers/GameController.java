@@ -21,25 +21,20 @@ public class GameController extends Controller {
 
 	public static void makeMove(long gameId, Move m) {
 		Game game = Game.findById(gameId);
-		if (!game.moves.contains(m)) {
-			game.addMove(m);
-
+		GameState gameState = new GameState();
+		if (game.addMove(m)) {
+			gameState.moveLog.add(m.toString());
 			// Computer's Move
 			Move compMove = TicTacToeAI.findNextMove(game.getState());
-			game.addMove(compMove);
-
+			if (game.addMove(compMove))
+				gameState.moveLog.add(compMove.toString());
 			// Save the game state
 			game.save();
-			GameState gameState = new GameState();
 			gameState.state = game.getState();
-			gameState.moveLog.add(m.toString());
-			gameState.moveLog.add(compMove.toString());
-			renderJSON(gameState);
 		} else {
-			GameState gameState = new GameState();
 			gameState.message = Messages.get("movetaken");
 			gameState.validMove = false;
-			renderJSON(gameState);
 		}
+		renderJSON(gameState);
 	}
 }
