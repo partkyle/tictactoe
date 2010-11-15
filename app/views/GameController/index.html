@@ -4,7 +4,9 @@
 	var moveUrl = '@{makeMove(game.id)}';
 </script>
 
-<a href="@{GameController.newGame()}">Create new game</a>
+<div class="center">
+	<a href="@{GameController.newGame()}">Create new game</a>
+</div>
 <table class="tictac#{if !util.TicTacToeAI.isStillPlaying(game.state)} done#{/if}">
 #{list [0,1,2], as:'y'}
 	<tr>
