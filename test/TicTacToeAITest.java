@@ -1,3 +1,4 @@
+import models.Move;
 import models.Player;
 
 import org.junit.Test;
@@ -67,5 +68,25 @@ public class TicTacToeAITest extends FunctionalTest {
 		Player winner6 = TicTacToeAI.getWinner(state6);
 		assertEquals(Player.Computer, winner6);
 		assertFalse(TicTacToeAI.isStillPlaying(state6));
+
+		Player[][] state7 = { { null, null, null }, { null, null, null }, { null, null, null } };
+		Player winner7 = TicTacToeAI.getWinner(state7);
+		assertNull(winner7);
+		assertTrue(TicTacToeAI.isStillPlaying(state7));
+
+	}
+
+	@Test
+	public void testFindNextMove() {
+
+		// Test for random
+		Player[][] state = { { Player.Player, null, null }, { null, null, null }, { null, null, null } };
+		int count = 0, randomTest = 100;
+		for (int i = 0; i < randomTest; i++) {
+			Move m = TicTacToeAI.findNextMove(state);
+			if (m.x == 2 && m.y == 1)
+				count++;
+		}
+		assertNotSame("The AI is not random", count, randomTest);
 	}
 }
