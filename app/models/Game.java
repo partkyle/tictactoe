@@ -22,12 +22,17 @@ public class Game extends Model {
 		return gameState;
 	}
 
-	public void addMove(Move move) {
-		if (!moves.contains(move)) {
+	public boolean addMove(Move move) {
+		if (moves.size() >= 9) {
+			System.out.println("The game is finished");
+			return false;
+		} else if (!moves.contains(move)) {
 			moves.add(move);
 			move.game = this;
+			return true;
 		} else {
 			System.out.println("Ignored duplicate move");
+			return false;
 		}
 	}
 
