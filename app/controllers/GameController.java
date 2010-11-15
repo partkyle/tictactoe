@@ -24,17 +24,22 @@ public class GameController extends Controller {
 		GameState gameState = new GameState();
 		if (game.addMove(m)) {
 			gameState.moveLog.add(m.toString());
-			// Computer's Move
-			Move compMove = TicTacToeAI.findNextMove(game.getState());
-			if (game.addMove(compMove))
-				gameState.moveLog.add(compMove.toString());
-			// Save the game state
+			if (TicTacToeAI.isStillPlaying(game.getState())) {
+				// Computer's Move
+				Move compMove = TicTacToeAI.findNextMove(game.getState());
+				if (game.addMove(compMove))
+					gameState.moveLog.add(compMove.toString());
+				// Save the game state
+			}
 			game.save();
-			gameState.state = game.getState();
 		} else {
 			gameState.message = Messages.get("movetaken");
 			gameState.validMove = false;
 		}
+		gameState.state = game.getState();
+		gameState.stillPlaying = TicTacToeAI.isStillPlaying(gameState.state);
+		if (!gameState.stillPlaying)
+			gameState.winner = TicTacToeAI.getWinner(gameState.state);
 		renderJSON(gameState);
 	}
 }
