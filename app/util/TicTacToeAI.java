@@ -1,4 +1,4 @@
-package controllers;
+package util;
 
 import models.Move;
 import models.Player;

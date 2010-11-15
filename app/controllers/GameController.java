@@ -3,6 +3,7 @@ package controllers;
 import models.Game;
 import models.Move;
 import play.mvc.Controller;
+import util.TicTacToeAI;
 
 public class GameController extends Controller {
 
