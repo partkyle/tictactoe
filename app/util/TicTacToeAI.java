@@ -8,10 +8,11 @@ import models.Player;
 
 public class TicTacToeAI {
 	public static Move findNextMove(Player[][] state) {
-		Move m = new Move();
-		m.x = 0;
-		m.y = 0;
-		m.player = Player.Computer;
+		Move m = null;
+		while (m == null) {
+			m = new Move(0, 0, Player.Computer);
+		}
+
 		return m;
 	}
 
