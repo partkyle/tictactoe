@@ -43,6 +43,6 @@ public class Move extends Model {
 
 	@Override
 	public String toString() {
-		return String.format("Game[%d] - Move[%s]: %d, %d", game.id, player, x, y);
+		return String.format("Move(%s): %d, %d", player, x, y);
 	}
 }
