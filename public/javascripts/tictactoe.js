@@ -1,13 +1,13 @@
 $(function() {
 
 	// td:hover in a cross-browser manner
-	$('table.tictac td').bind('mouseenter', function() {
+	$('table.tictac:not(.done) td').live('mouseenter', function() {
 		$(this).addClass('hover');
-	}).bind('mouseleave', function() {
+	}).live('mouseleave', function() {
 		$(this).removeClass('hover');
 	});
 	
-	$('table td').bind('click', function() {
+	$('table.tictac:not(.done) td').live('click', function() {
 		var that = $(this);
 		$.post(moveUrl, {'m.x': that.data('x'), 'm.y': that.data('y')}, function(json) {
 			if (!json.validMove) {
@@ -26,9 +26,14 @@ $(function() {
 				});
 				if (!json.stillPlaying) {
 					$('#log > ul').append('<li>Game Over. '+(json.winner == null? 'Draw' : 'Winner: '+json.winner)+'</li>')
+					that.parents('table.tictac').addClass('done');
 				}
 			}
 		}, 'json');
+	});
+	
+	$('table.done td').live('click', function() {
+		alert('The game is finished - Click new game to start a new one');
 	});
 
 });
