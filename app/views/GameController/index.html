@@ -4,6 +4,8 @@
 	var moveUrl = '@{makeMove(game.id)}';
 </script>
 
+<a href="@{GameController.newGame()}">Create new game</a>
+
 <table class="tictac">
 #{list [0,1,2], as:'i'}
 	<tr>
