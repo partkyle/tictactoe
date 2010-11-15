@@ -22,6 +22,11 @@ public class Game extends Model {
 		return gameState;
 	}
 
+	public void addMove(Move m) {
+		moves.add(m);
+		m.game = this;
+	}
+
 	@Override
 	public boolean equals(Object other) {
 		if (other instanceof Game) {

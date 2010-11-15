@@ -17,14 +17,10 @@ public class GameController extends Controller {
 	}
 
 	public static void makeMove(long gameId, Move m) {
-		System.out.println(String.format("Move(%d): (%d, %d)", gameId, m.x, m.y));
 		Game game = Game.findById(gameId);
 		if (!game.moves.contains(m)) {
-			m.game = game;
-			m.save();
-			game.moves.add(m);
+			game.addMove(m);
 			game.save();
-			System.out.println(game.getState());
 			renderJSON(game.getState());
 		} else {
 			m.valid = false;
