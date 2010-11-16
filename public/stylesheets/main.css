@@ -20,16 +20,16 @@ table.tictac {
 }
 
 table.tictac tr.first td {
-	border-bottom: 1px solid black;
+	border-bottom: 2px solid black;
 }
 table.tictac tr.last td {
-	border-top: 1px solid black;
+	border-top: 2px solid black;
 }
 table.tictac tr td.first {
-	border-right: 1px solid black;
+	border-right: 2px solid black;
 }
 table.tictac tr td.last {
-	border-left: 1px solid black;
+	border-left: 2px solid black;
 }
 
 table.tictac td {
