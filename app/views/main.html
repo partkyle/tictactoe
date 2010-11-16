@@ -13,10 +13,10 @@
 	<body>
     	<div class="header">
 		#{if loggedIn}
-			Header for logged in user
+			<a href="@{logout()}">&{'logout'}</a>
 		#{/if}
 		#{else}
-			yo
+			<a href="@{register()}">&{'register'}</a>
 		#{/else}
 		</div>
 		<div id="content">
