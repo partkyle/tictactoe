@@ -1,0 +1,16 @@
+#{extends 'main.html' /}
+
+<h1 id="title">Login</h1>
+<form id="login" action="@{Application.authenticate}" method="POST">
+	<p>
+		<label>Username</label>
+		<input type="text" name="username" value="${flash.username}" id="username" />
+	</p>
+	<p>
+		<label>Password</label>
+		<input type="password" name="password" value="" id="password" />
+	</p>
+	<p class="buttons">
+		<input type="submit" value="Login" id="loginButton" />
+	</p>
+</form>

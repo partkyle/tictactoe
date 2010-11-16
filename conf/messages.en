@@ -3,6 +3,10 @@
 #
 title = Tic Tac Toe
 newgame = Create new game
+signup = Create an account
+
+movepermissions = You cannot make moves on another player's game.
+
 movetaken = INVALID MOVE - That move has already been made.
 winner = Game over. %s is the winner!
 draw = Cat's game. No winner, No loser... :(

@@ -4,7 +4,16 @@
 
 # Home page
 GET     /                                       Application.index
-GET		/game/{gameId}							GameController.index
+
+# Registration/Authentication
+GET		/signup									Application.signup
+POST	/signup									Application.register
+GET		/login									Application.login
+POST	/login									Application.authenticate
+GET		/logout									Application.logout
+
+# Games
+GET		/game/{gameId}							GameController.show
 POST	/game/{gameId}/move						GameController.makeMove
 
 # Map static resources from the /app/public folder to the /public path
