@@ -2,8 +2,8 @@
 # For example, for French create a messages.fr file
 #
 title = Tic Tac Toe
-newgame = Create new game
-signup = Create an account
+newgame = New Game
+signup = Signup
 logout = Logout
 
 movepermissions = You cannot make moves on another player's game.
