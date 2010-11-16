@@ -8,7 +8,6 @@ GET		/										Application.index
 # Registration/Authentication
 GET		/signup									Application.signup
 POST	/signup									Application.register
-GET		/login									Application.login
 POST	/login									Application.authenticate
 GET		/logout									Application.logout
 
