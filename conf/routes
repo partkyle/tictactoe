@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET		/										Application.index
 
 # Registration/Authentication
 GET		/signup									Application.signup
@@ -17,7 +17,7 @@ GET		/game/{gameId}							GameController.show
 POST	/game/{gameId}/move						GameController.makeMove
 
 # Map static resources from the /app/public folder to the /public path
-GET     /public/                                staticDir:public
+GET		/public/								staticDir:public
 
 # Catch all
-*       /{controller}/{action}                  {controller}.{action}
+*		/{controller}/{action}					{controller}.{action}
