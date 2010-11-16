@@ -22,6 +22,11 @@ public class Application extends Controller {
 	public static void login() {
 		render();
 	}
+	
+	public static void logout() {
+		session.clear();
+		index();
+	}
 
 	public static void signup() {
 		render();
