@@ -19,10 +19,6 @@ public class Application extends Controller {
 			render();
 	}
 
-	public static void login() {
-		render();
-	}
-	
 	public static void logout() {
 		session.clear();
 		index();
@@ -37,7 +33,7 @@ public class Application extends Controller {
 		if (user == null || !user.checkPassword(password)) {
 			flash.error("Bad username or bad password");
 			flash.put("username", username);
-			login();
+			index();
 		}
 		session.put("userId", user.id);
 		Users.show(user.id);
@@ -53,7 +49,7 @@ public class Application extends Controller {
 			signup();
 		}
 		new User(username, password).save();
-		login();
+		index();
 	}
 
 	public static long getLoggedInId() {
