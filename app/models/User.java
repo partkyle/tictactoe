@@ -1,8 +1,11 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import play.db.jpa.Model;
 import play.libs.Codec;
@@ -13,6 +16,9 @@ public class User extends Model {
 	public String password;
 
 	public Date createdOn = new Date();
+
+	@OneToMany(mappedBy = "user")
+	public List<Game> games = new ArrayList<Game>();
 
 	public User(String username, String password) {
 		this.username = username;

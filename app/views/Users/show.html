@@ -1,5 +1,16 @@
 #{extends 'main.html' /}
 
+<h1>Welcome ${user.username}!</h1>
+
 <div class="center">
 	<a href="@{GameController.newGame()}">&{'newgame'}</a>
 </div>
+
+#{if user.games.size() > 0}
+<h3>List of Games</h3>
+<ul>
+	#{list user.games, as:'game'}
+	    <li><a href="@{GameController.show(game.id)}">${game}</a></li>
+	#{/list}
+</ul>
+#{/if}
