@@ -13,7 +13,10 @@ import models.*;
 public class Application extends Controller {
 
 	public static void index() {
-		render();
+		if (getLoggedIn() != null)
+			Users.show(getLoggedIn().id);
+		else
+			render();
 	}
 
 	public static void login() {
