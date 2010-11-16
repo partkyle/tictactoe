@@ -48,8 +48,9 @@ public class Application extends Controller {
 			flash.error("Please correct these errors !");
 			signup();
 		}
-		new User(username, password).save();
-		index();
+		User user = new User(username, password).save();
+		session.put("userId", user.id);
+		Users.show(user.id);
 	}
 
 	public static long getLoggedInId() {
