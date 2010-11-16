@@ -16,6 +16,9 @@ GET		/logout									Application.logout
 GET		/game/{gameId}							GameController.show
 POST	/game/{gameId}/move						GameController.makeMove
 
+# Users
+GET		/users/{userId}							Users.show
+
 # Map static resources from the /app/public folder to the /public path
 GET		/public/								staticDir:public
 
