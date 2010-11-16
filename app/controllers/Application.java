@@ -12,6 +12,14 @@ import models.*;
 
 public class Application extends Controller {
 
+	@Before
+	static void before() {
+		if (getLoggedIn() != null) {
+			renderArgs.put("loggedIn", true);
+			renderArgs.put("username", getLoggedIn().username);
+		}
+	}
+	
 	public static void index() {
 		if (getLoggedIn() != null)
 			Users.show(getLoggedIn().id);
