@@ -11,7 +11,7 @@ import util.TicTacToeAI;
 
 public class GameController extends Application {
 
-	public static void show(long gameId) {
+	public static void show(String gameId) {
 		Game game = Game.findById(gameId);
 		if (game.user != null && game.user.id != getLoggedInId()) {
 			forbidden("You don't have access to that game.");
@@ -26,10 +26,10 @@ public class GameController extends Application {
 		if (loggedIn != null)
 			game.user = loggedIn;
 		game.save();
-		show(game.getId());
+		show(game.id);
 	}
 
-	public static void makeMove(long gameId, Move m) {
+	public static void makeMove(String gameId, Move m) {
 		Game game = Game.findById(gameId);
 		GameState gameState = new GameState();
 		if (game.user != null && getLoggedIn() != null && getLoggedIn().id != game.user.id) {

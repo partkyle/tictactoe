@@ -6,14 +6,18 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import play.db.jpa.Model;
+import play.db.jpa.GenericModel;
 import play.i18n.Messages;
+import play.libs.Codec;
 
 @Entity
-public class Game extends Model {
+public class Game extends GenericModel {
+	@Id
+	public String id = Codec.UUID();
 	public Date createdOn = new Date();
 	
 	@ManyToOne
@@ -48,7 +52,7 @@ public class Game extends Model {
 	public boolean equals(Object other) {
 		if (other instanceof Game) {
 			Game g = (Game) other;
-			return id == g.id;
+			return id.equals(g.id);
 		}
 		return false;
 	}
