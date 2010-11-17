@@ -1,21 +1,26 @@
 #{extends 'main.html' /}
 #{set title:'Tic Tac Toe' /}
+#{set 'moreStyles'}
+	<link rel="stylesheet" href="@{'/public/stylesheets/forms.css'}"/>
+#{/set}
 
-<div class="center">
-	<a href="@{GameController.newGame}">&{'newgame'}</a>
-</div>
-
-<h1 id="title">Login</h1>
 <form id="login" action="@{Application.authenticate}" method="POST">
+<fieldset>
+	<legend>Login</legend>
 	<p>
-		<label>Username</label>
+		<label>&{'username'}</label> <br/>
 		<input type="text" name="username" value="${flash.username}" id="username" />
 	</p>
 	<p>
-		<label>Password</label>
+		<label>&{'password'}</label> <br/>
 		<input type="password" name="password" value="" id="password" />
 	</p>
 	<p class="buttons">
 		<input type="submit" value="Login" id="loginButton" />
 	</p>
+</fieldset>
 </form>
+
+<div class="info">
+	<a href="@{signup}">Click here to sign up for an account</a>, or you can play anonymously <a href="@{GameController.newGame}">here</a
+</div>
