@@ -19,7 +19,8 @@ public class Game extends GenericModel {
 	@Id
 	public String id = Codec.UUID();
 	public Date createdOn = new Date();
-	
+	public GameStatus status = GameStatus.Incomplete;
+
 	@ManyToOne
 	public User user;
 

@@ -2,7 +2,9 @@ package controllers;
 
 import models.Game;
 import models.GameState;
+import models.GameStatus;
 import models.Move;
+import models.Player;
 import models.User;
 import play.i18n.Messages;
 import play.mvc.Controller;
@@ -57,6 +59,17 @@ public class GameController extends Application {
 			gameState.stillPlaying = false;
 			gameState.state = game.getState();
 			gameState.winner = TicTacToeAI.getWinner(gameState.state);
+		}
+
+		if (!gameState.stillPlaying) {
+			if (gameState.winner == null)
+				game.status = GameStatus.Draw;
+			else if (gameState.winner == Player.Computer)
+				game.status = GameStatus.Loss;
+			else if (gameState.winner == Player.Player)
+				game.status = GameStatus.Win;
+
+			game.save();
 		}
 		renderJSON(gameState);
 	}
