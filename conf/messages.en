@@ -6,6 +6,12 @@ newgame = New Game
 signup = Signup
 logout = Logout
 
+# signup page
+username = Username
+password = Password
+password2 = Confirm Password
+
+
 movepermissions = You cannot make moves on another player's game.
 
 movetaken = INVALID MOVE - That move has already been made.

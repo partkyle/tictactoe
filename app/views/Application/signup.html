@@ -3,22 +3,29 @@
 <h1 id="title">Signup</h1>
 
 <form id="signup" action="@{Application.register}" method="POST">
+	#{field 'username'}
 	<p>
-		<label>Username</label>
-		<input type="text" name="username" value="${flash.username}" id="username" />
-		<span class="error">#{error 'username' /}</span>
+		<label>&{field.name}</label> <br/>
+		<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}">
+		<span class="error">${field.error}</span>
 	</p>
+	#{/}
+	#{field 'password'}
 	<p>
-		<label>Password</label>
-		<p class="light">
-			Enter your desired password twice. It must be at least 5 characters.
-		</p>
-		<div>
-			<input type="password" name="password" value="${flash.password}" id="password" /> <span class="error">#{error 'password' /}</span>
-		</div>
-		<div>
-			<input type="password" name="password2" value="${flash.password2}" id="password2" /> <span class="error">#{error 'password2' /}</span>
-		</div>
+		<label>&{field.name}</label> <br/>
+		<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}">
+		<span class="error">${field.error}</span>
+	</p>
+	#{/}
+	#{field 'password2'}
+	<p>
+		<label>&{field.name}</label> <br/>
+		<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}">
+		<span class="error">${field.error}</span>
+	</p>
+	#{/}
+	<p class="info">
+		Enter your desired password twice. It must be at least 5 characters.
 	</p>
 	<p class="buttons">
 		<input type="submit" value="Signup" id="signupButton" />
