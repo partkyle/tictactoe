@@ -60,6 +60,6 @@ public class Game extends GenericModel {
 
 	@Override
 	public String toString() {
-		return Messages.get("game", id);
+		return Messages.get("game", status, createdOn);
 	}
 }

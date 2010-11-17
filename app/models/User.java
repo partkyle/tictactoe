@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import play.db.jpa.GenericModel;
 import play.libs.Codec;
@@ -20,13 +21,14 @@ public class User extends GenericModel {
 	public Date createdOn = new Date();
 
 	@OneToMany(mappedBy = "user")
+	@OrderBy("createdOn")
 	public List<Game> games = new ArrayList<Game>();
 
 	public User(String username, String password) {
 		this.username = username;
 		this.password = Codec.hexSHA1(password);
 	}
-	
+
 	@Override
 	public boolean equals(Object other) {
 		if (other instanceof User) {

@@ -28,4 +28,4 @@ draw = Cat's game. No winner, No loser... :(
 
 #Entities
 move = Move(%s): %d, %d
-game = Game %d
+game = Game - %s on %2$tm.%2$te.%2$tY at %2$tl:%2$tM%2$tp
