@@ -1,33 +1,36 @@
 #{extends 'main.html' /}
+#{set 'moreStyles'}
+<link rel="stylesheet" href="@{'/public/stylesheets/forms.css'}" />
+#{/}
 
-<h1 id="title">Signup</h1>
+<h1 id="title">Create an Account</h1>
+
+#{if errors}
+    <div class="error">
+    	<ul>
+    		#{errors}
+			<li>${error}</li>
+    		#{/errors}
+    	</ul>
+    </div>
+#{/if}
 
 <form id="signup" action="@{Application.register}" method="POST">
-	#{field 'username'}
+<fieldset>
+	<legend>Signup</legend>
 	<p>
-		<label>&{field.name}</label> <br/>
-		<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}">
-		<span class="error">${field.error}</span>
+		<label>&{'username'}</label> <br/>
+		<input type="text" name="username" value="${flash.username}" id="username" title="&{'username.help'}" />
+		<br/>
 	</p>
-	#{/}
-	#{field 'password'}
 	<p>
-		<label>&{field.name}</label> <br/>
-		<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}">
-		<span class="error">${field.error}</span>
-	</p>
-	#{/}
-	#{field 'password2'}
-	<p>
-		<label>&{field.name}</label> <br/>
-		<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}">
-		<span class="error">${field.error}</span>
-	</p>
-	#{/}
-	<p class="info">
-		Enter your desired password twice. It must be at least 5 characters.
+		<label>&{'password'}</label> <br/>
+		<input type="password" name="password" value="${flash.password}" id="password" title="&{'password.help'}"/>
+		<input type="password" name="password2" value="${flash.password2}" id="password2" title="&{'password2.help'}"/>
+		<br/>
 	</p>
 	<p class="buttons">
 		<input type="submit" value="Signup" id="signupButton" />
-	</p>	
+	</p>
+</fieldset>	
 </form>
