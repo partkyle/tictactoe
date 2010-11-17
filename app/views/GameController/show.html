@@ -2,9 +2,13 @@
 #{set title: 'Tic Tac Toe' /}
 #{i18n /}
 
+#{set 'moreScripts'}
 <script type="text/javascript">
 	var moveUrl = '@{makeMove(game.id)}';
 </script>
+#{script 'tictactoe.js' /}
+#{/set}
+
 
 <div class="center">
 	<a href="@{GameController.newGame}">&{'newgame'}</a>
@@ -36,5 +40,3 @@
 	#{/ifnot}
 	</ul>
 </div>
-
-#{script 'tictactoe.js' /}
