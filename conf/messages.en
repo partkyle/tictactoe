@@ -5,6 +5,7 @@ title = Tic Tac Toe
 newgame = New Game
 signup = Signup
 logout = Logout
+profile = Profile
 
 # signup page
 username = Username

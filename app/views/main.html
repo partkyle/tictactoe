@@ -11,6 +11,7 @@
 	<body>
     	<div class="header">
 		#{if loggedIn}
+			<a href="@{Users.show(session.get('username'))}">&{'profile'}</a>
 			<a href="@{Application.logout}">&{'logout'}</a>
 		#{/if}
 		#{else}
