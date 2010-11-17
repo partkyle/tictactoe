@@ -9,8 +9,8 @@ public class Users extends Application {
 		render();
 	}
 
-	public static void show(long userId) {
-		User user = User.findById(userId);
+	public static void show(String username) {
+		User user = User.findByUsername(username);
 		render(user);
 	}
 

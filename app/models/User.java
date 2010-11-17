@@ -5,13 +5,15 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import play.db.jpa.Model;
+import play.db.jpa.GenericModel;
 import play.libs.Codec;
 
 @Entity
-public class User extends Model {
+public class User extends GenericModel {
+	@Id
 	public String username;
 	public String password;
 
@@ -23,6 +25,15 @@ public class User extends Model {
 	public User(String username, String password) {
 		this.username = username;
 		this.password = Codec.hexSHA1(password);
+	}
+	
+	@Override
+	public boolean equals(Object other) {
+		if (other instanceof User) {
+			User u = (User) other;
+			return username.equals(u.username);
+		}
+		return false;
 	}
 
 	public boolean checkPassword(String password) {

@@ -13,7 +13,7 @@ public class GameController extends Application {
 
 	public static void show(String gameId) {
 		Game game = Game.findById(gameId);
-		if (game.user != null && game.user.id != getLoggedInId()) {
+		if (game.user != null && !game.user.equals(getLoggedIn())) {
 			forbidden("You don't have access to that game.");
 		} else {
 			render(game);
@@ -32,7 +32,7 @@ public class GameController extends Application {
 	public static void makeMove(String gameId, Move m) {
 		Game game = Game.findById(gameId);
 		GameState gameState = new GameState();
-		if (game.user != null && getLoggedIn() != null && getLoggedIn().id != game.user.id) {
+		if (game.user != null && !game.user.equals(getLoggedIn())) {
 			gameState.validMove = false;
 			gameState.message = Messages.get("movepermissions");
 		} else if (TicTacToeAI.isStillPlaying(game.getState())) {

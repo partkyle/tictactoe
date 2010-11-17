@@ -19,10 +19,10 @@ public class Application extends Controller {
 			renderArgs.put("username", getLoggedIn().username);
 		}
 	}
-	
+
 	public static void index() {
 		if (getLoggedIn() != null)
-			Users.show(getLoggedIn().id);
+			Users.show(getLoggedInId());
 		else
 			render();
 	}
@@ -43,8 +43,8 @@ public class Application extends Controller {
 			flash.put("username", username);
 			index();
 		}
-		session.put("userId", user.id);
-		Users.show(user.id);
+		session.put("username", user.username);
+		Users.show(user.username);
 	}
 
 	public static void register(@Required @MinSize(5) String username, @Required @MinSize(5) String password, @Equals("password") String password2) {
@@ -57,20 +57,15 @@ public class Application extends Controller {
 			signup();
 		}
 		User user = new User(username, password).save();
-		session.put("userId", user.id);
-		Users.show(user.id);
+		session.put("username", user.username);
+		Users.show(user.username);
 	}
 
-	public static long getLoggedInId() {
-		long userId = 0;
-		try {
-			userId = Long.parseLong(session.get("userId"));
-		} catch (NumberFormatException e) {}
-
-		return userId;
+	public static String getLoggedInId() {
+		return session.get("username");
 	}
 
 	public static User getLoggedIn() {
-		return User.findById(getLoggedInId());
+		return User.findByUsername(getLoggedInId());
 	}
 }
