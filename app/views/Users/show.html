@@ -1,6 +1,18 @@
 #{extends 'main.html' /}
 
-<h1>Welcome ${user.username}!</h1>
+<h1>${user.username}'s profile</h1>
+
+<table>
+	<tr>
+		<th colspan="2">Record</th>
+	<tr>
+#{list user.record, as:'r'}
+	<tr>
+		<td>${r.key}</td>
+		<td>${r.value.size()}</td>
+	</tr>
+#{/list}
+</table>
 
 #{if user.games.size() > 0}
 <h3>List of Games</h3>

@@ -3,6 +3,8 @@ package models;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -27,6 +29,16 @@ public class User extends GenericModel {
 	public User(String username, String password) {
 		this.username = username;
 		this.password = Codec.hexSHA1(password);
+	}
+	
+	public Map<GameStatus, List<Game>> getRecord() {
+		Map<GameStatus, List<Game>> record = new TreeMap<GameStatus, List<Game>>();
+		for (Game game : games) {
+			if(record.get(game.status) == null)
+				record.put(game.status, new ArrayList<Game>());
+			record.get(game.status).add(game);
+		}
+		return record;
 	}
 
 	@Override
