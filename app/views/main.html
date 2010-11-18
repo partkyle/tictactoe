@@ -4,19 +4,23 @@
 	<head>
 		<title>#{get 'title' /}</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/screen.css'}">
+		<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/plugins/buttons/screen.css'}">
 		<link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
 		#{get 'moreStyles' /}
 		<link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
 	</head>
 	<body>
-    	<div class="header">
+    	<div class="header clearfix">
 		#{if loggedIn}
-			<a href="@{Users.show(session.get('username'))}">&{'profile'}</a>
-			<a href="@{Application.logout}">&{'logout'}</a>
+			<a href="@{Users.show(session.get('username'))}" class="button">&{'profile'}</a>
+			<a href="@{Application.logout}" class="button negative">&{'logout'}</a>
 		#{/if}
 		#{else}
-			<a href="@{Application.register}">&{'signup'}</a>
+			<a href="@{Application.register}" class="button">&{'signup'}</a>
+			<a href="@{Application.index}" class="button">&{'login'}</a>
 		#{/else}
+		<a href="@{GameController.newGame}" class="button positive">&{'newgame'}</a>
 		</div>
 		<div id="content">
 		#{doLayout /}

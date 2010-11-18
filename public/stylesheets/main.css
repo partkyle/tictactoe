@@ -3,12 +3,51 @@ body {
 	min-width: 500px;
 }
 
+div.header {
+	width: 100%;
+	background-color: #05296E; /* for non-css3 browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4575D4', endColorstr='#6B8FD4'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#4575D4), to(#6B8FD4)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #4575D4,  #6B8FD4); /* for firefox 3.6+ */
+}
+
+form {
+	background-color: #dedede;	
+}
+
+form fieldset {
+	padding: 0;
+}
+
+form h2 {
+	background-color: #eeeeee;
+	padding: 5px 10px;
+}
+
+form p {
+	padding-left: 20px;	
+}
+
+div.header a {
+	float: right;
+}
+
 #content {
 	text-align: left;
-	width: 300px;
+	width: 480px;
+	padding: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-left: auto;
+}
+
+div.game {
+	width: 300px;
+	text-align: center;
+	margin: auto;
+}
+
+div.game div.log ul li{
+	text-align: left;
 }
 
 div.center {
@@ -36,17 +75,17 @@ table.tictac td {
 	padding: 50px;
 }
 
-td.hover {
+table.tictac td.hover {
 	background-color: #FFF3CC;
 }
 
-td.Player {
+table.tictac td.Player {
 	background-image: url(/public/images/x.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 }
 
-td.Computer {
+table.tictac td.Computer {
 	background-image: url(/public/images/o.png);
 	background-repeat: no-repeat;
 	background-position: center center;

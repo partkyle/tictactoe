@@ -1,12 +1,9 @@
 #{extends 'main.html' /}
 #{set title:'Tic Tac Toe' /}
-#{set 'moreStyles'}
-	<link rel="stylesheet" href="@{'/public/stylesheets/forms.css'}"/>
-#{/set}
 
 <form id="login" action="@{Application.authenticate}" method="POST">
 <fieldset>
-	<legend>Login</legend>
+	<h2>&{'login'}</h2>
 	<p>
 		<label>&{'username'}</label> <br/>
 		<input type="text" name="username" value="${flash.username}" id="username" />
@@ -16,12 +13,14 @@
 		<input type="password" name="password" value="" id="password" />
 	</p>
 	<p class="buttons">
-		<input type="submit" value="Login" id="loginButton" />
+		<button type="submit" id="loginButton" class="button positive">&{'login'}</button>
 	</p>
 </fieldset>
 </form>
 
 <div class="info">
-	<a href="@{signup}">Click here to sign up for an account</a>, or you can play anonymously <a href="@{GameController.newGame}">here</a>
-	(Note: anonymous games are not protected - meaning anyone could potentially view or play your game.)
+	<div class="clearfix">
+		<a href="@{signup}" class="button">Sign up for an account</a> <a href="@{GameController.newGame}" class="button positive">Play a new Game</a>
+	</div>
+	<span>Note: anonymous games are not protected.</span>
 </div>

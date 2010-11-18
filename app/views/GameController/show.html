@@ -9,10 +9,7 @@
 #{script 'tictactoe.js' /}
 #{/set}
 
-
-<div class="center">
-	<a href="@{GameController.newGame}">&{'newgame'}</a>
-</div>
+<div class="game">
 <table class="tictac#{ifnot util.TicTacToeAI.isStillPlaying(game.state)} done#{/ifnot}">
 #{list [0,1,2], as:'y'}
 	<tr class="#{if y == 0}first#{/if}#{if y == 2}last#{/if}">
@@ -22,6 +19,7 @@
 	</tr>
 #{/list}
 </table>
+
 
 <div id="log">
 	<ul>
@@ -39,4 +37,5 @@
 		</li>
 	#{/ifnot}
 	</ul>
+</div>
 </div>

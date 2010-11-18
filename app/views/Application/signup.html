@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="@{'/public/stylesheets/forms.css'}" />
 #{/}
 
-<h1 id="title">Create an Account</h1>
-
 #{if errors}
     <div class="error">
     	<ul>
@@ -17,7 +15,7 @@
 
 <form id="signup" action="@{Application.register}" method="POST">
 <fieldset>
-	<legend>Signup</legend>
+	<h2>Create an Account</h2>
 	<p>
 		<label>&{'username'}</label> <br/>
 		<input type="text" name="username" value="${flash.username}" id="username" title="&{'username.help'}" />
@@ -30,7 +28,7 @@
 		<br/>
 	</p>
 	<p class="buttons">
-		<input type="submit" value="Signup" id="signupButton" />
+		<button type="submit" id="signupButton" class="button positive">&{'signup'}</button>
 	</p>
 </fieldset>	
 </form>
