@@ -14,7 +14,6 @@ $(function() {
 			if (!json.validMove) {
 				$('#log > ul').append('<li>'+json.message+'</li>');
 			} else {
-				console.log(json);
 				$.each(json.state, function(y, val){
 					$.each(val, function(x, className){
 						if (className != null) {
