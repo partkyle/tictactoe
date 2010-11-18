@@ -1,6 +1,7 @@
 #{extends 'main.html' /}
 
 <h1>${user.username}'s profile</h1>
+<h3>Member since ${user.createdOn.since()}</h3>
 
 <table>
 	<tr>
