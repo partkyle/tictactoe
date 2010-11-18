@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
+import javax.persistence.Transient;
 
 import play.db.jpa.GenericModel;
 import play.libs.Codec;
@@ -19,24 +20,28 @@ public class User extends GenericModel {
 	@Id
 	public String username;
 	public String password;
-
 	public Date createdOn = new Date();
 
 	@OneToMany(mappedBy = "user")
 	@OrderBy("createdOn")
 	public List<Game> games = new ArrayList<Game>();
 
+	@Transient
+	Map<GameStatus, List<Game>> record;
+
 	public User(String username, String password) {
 		this.username = username;
 		this.password = Codec.hexSHA1(password);
 	}
-	
+
 	public Map<GameStatus, List<Game>> getRecord() {
-		Map<GameStatus, List<Game>> record = new TreeMap<GameStatus, List<Game>>();
-		for (Game game : games) {
-			if(record.get(game.status) == null)
-				record.put(game.status, new ArrayList<Game>());
-			record.get(game.status).add(game);
+		if (record == null) {
+			record = new TreeMap<GameStatus, List<Game>>();
+			for (Game game : games) {
+				if (record.get(game.status) == null)
+					record.put(game.status, new ArrayList<Game>());
+				record.get(game.status).add(game);
+			}
 		}
 		return record;
 	}
