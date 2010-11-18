@@ -46,6 +46,22 @@ public class User extends GenericModel {
 		return record;
 	}
 
+	public List<String> getRecordKeys() {
+		List<String> keys = new ArrayList();
+		for (GameStatus status : getRecord().keySet()) {
+			keys.add(status.toString());
+		}
+		return keys;
+	}
+
+	public List<String> getRecordValues() {
+		List<String> values = new ArrayList();
+		for (List<Game> gameList : getRecord().values()) {
+			values.add("" + gameList.size());
+		}
+		return values;
+	}
+
 	@Override
 	public boolean equals(Object other) {
 		if (other instanceof User) {
