@@ -54,10 +54,6 @@ div.center {
 	text-align: center;
 }
 
-table.tictac {
-	border-collapse: collapse;
-}
-
 table.tictac tr.first td {
 	border-bottom: 2px solid black;
 }
