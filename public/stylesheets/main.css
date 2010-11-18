@@ -54,6 +54,10 @@ div.center {
 	text-align: center;
 }
 
+table.tictac tr td {
+	background-color: inherit;
+}
+
 table.tictac tr.first td {
 	border-bottom: 2px solid black;
 }
