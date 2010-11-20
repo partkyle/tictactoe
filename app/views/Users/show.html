@@ -8,7 +8,10 @@
 		</div>
 	#{/if}
 	#{else}
-		<a href="@{edit(user.username)}" class="button">&{'profile.edit'}</a>
+		<div class="clearfix">
+			<a href="@{edit(user.username)}" class="button">&{'profile.edit'}</a>
+			<a href="@{GameController.newGame()}" class="button positive">&{'newgame'}</a>
+		</div>
 	#{/else}
 #{/if}
 #{if user.record.keySet().size() > 0}
