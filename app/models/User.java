@@ -46,14 +46,6 @@ public class User extends GenericModel {
 		return record;
 	}
 
-	public List<GameStatus> getRecordKeys() {
-		List<GameStatus> keys = new ArrayList();
-		for (GameStatus status : getRecord().keySet()) {
-			keys.add(status);
-		}
-		return keys;
-	}
-
 	public List<String> getRecordValues() {
 		List<String> values = new ArrayList();
 		for (List<Game> gameList : getRecord().values()) {
