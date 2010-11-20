@@ -1,6 +1,7 @@
 package controllers;
 
 import play.*;
+import play.data.validation.Email;
 import play.data.validation.Equals;
 import play.data.validation.MinSize;
 import play.data.validation.Required;
@@ -47,7 +48,7 @@ public class Application extends Controller {
 		Users.show(user.username);
 	}
 
-	public static void register(@Required @MinSize(5) String username, @Required @MinSize(5) String password, @Equals("password") String password2) {
+	public static void register(@Required @MinSize(5) String username, @Email String email, @Required @MinSize(5) String password, @Equals("password") String password2) {
 		if (User.find("username", username).first() != null)
 			validation.addError("username", "%s is already taken", username);
 		if (validation.hasErrors()) {
@@ -56,7 +57,7 @@ public class Application extends Controller {
 			flash.error("Please correct these errors !");
 			signup();
 		}
-		User user = new User(username, password).save();
+		User user = new User(username, email, password).save();
 		session.put("username", user.username);
 		Users.show(user.username);
 	}

@@ -19,6 +19,7 @@ import play.libs.Codec;
 public class User extends GenericModel {
 	@Id
 	public String username;
+	public String email;
 	public String password;
 	public Date createdOn = new Date();
 
@@ -29,8 +30,9 @@ public class User extends GenericModel {
 	@Transient
 	public Map<GameStatus, List<Game>> record;
 
-	public User(String username, String password) {
+	public User(String username, String email, String password) {
 		this.username = username;
+		this.email = email;
 		this.password = Codec.hexSHA1(password);
 	}
 
@@ -53,6 +55,10 @@ public class User extends GenericModel {
 		}
 		return values;
 	}
+	
+	public String getGravatarHash() {
+		return Codec.hexMD5(email);
+	}
 
 	@Override
 	public boolean equals(Object other) {
@@ -62,7 +68,7 @@ public class User extends GenericModel {
 		}
 		return false;
 	}
-
+	
 	public boolean checkPassword(String password) {
 		return this.password.equals(Codec.hexSHA1(password));
 	}

@@ -3,6 +3,7 @@
 <h1>${user.username}'s profile</h1>
 <h3>Member since ${user.createdOn.since()}</h3>
 
+#{if user.record.keySet().size() > 0}
 <table>
 	<thead>
 	<tr>
@@ -24,6 +25,7 @@
 <div class="center">
 	<img src="http://chart.apis.google.com/chart?chs=300x225&chd=t:${user.recordValues.join(',')}&chco=${models.GameStatus.getColorURL(user.record.keySet())}&cht=p&chdl=${user.record.keySet().join('|')}" />
 </div>
+#{/if}
 
 #{if user.games.size() > 0}
 <table id="game_list">
@@ -43,3 +45,9 @@
 	</tbody>
 </table>
 #{/if}
+#{else}
+	<div class="info clearfix">
+		<span class="clearfix">&{'nogames'}</span>
+		<a href="@{GameController.newGame}" class="button positive">&{'newgame'}</a>
+	</div>
+#{/else}

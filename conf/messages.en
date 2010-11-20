@@ -11,6 +11,8 @@ profile = Profile
 # signup page
 username = Username
 username.help = Enter a username with at least 5 characters.
+email = Email
+email.help = Enter a valid email address.
 password = Password
 password.help = Enter your desired password twice. It must be at least 5 characters.
 password2 = Confirm Password
