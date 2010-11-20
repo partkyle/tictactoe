@@ -9,9 +9,9 @@ import java.util.*;
 @Entity
 public class Ranking extends Model {
 	public User user;
-	public long wins;
-	public long losses;
-	public long draws;
+	public long wins = 0;
+	public long losses = 0;
+	public long draws = 0;
 
 	public Ranking(User user) {
 		this.user = user;
