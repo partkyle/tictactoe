@@ -29,6 +29,6 @@ public class Ranking extends Model {
 	}
 
 	public void calculateRank() {
-		score = wins * SCORE_WIN + losses + SCORE_LOSS + draws * SCORE_DRAW;
+		score = wins * SCORE_WIN + losses * SCORE_LOSS + draws * SCORE_DRAW;
 	}
 }
