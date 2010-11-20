@@ -94,3 +94,11 @@ table.tictac td.Computer {
 table#game_list table.tictac td {
 	padding: 25px;
 }
+
+table#game_list table.tictac td.Player {
+	background-image: url(/public/images/x_small.png)
+}
+
+table#game_list table.tictac td.Computer {
+	background-image: url(/public/images/o_small.png)
+}
