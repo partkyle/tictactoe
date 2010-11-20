@@ -34,6 +34,12 @@ profile.edit = Edit Profile
 
 # ranking
 ranking.recalc = Ranking has not been calculated, please check back later.
+rank.rank = Rank
+rank.user = User
+rank.wins = Wins
+rank.losses = Losses
+rank.draws = Draws
+rank.score = Score
 
 movepermissions = You cannot make moves on another player's game.
 

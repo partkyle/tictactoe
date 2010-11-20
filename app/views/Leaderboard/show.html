@@ -4,8 +4,17 @@
 	<table>
 		<thead>
 		<tr>
-			<th colspan="7">Record</th>
+			<th colspan="8">Rankings</th>
+		</tr>
 		<tr>
+			<th>&{'rank.rank'}</th>
+			<th>&{'rank.user'}</th>
+			<th>&{'rank.wins'}</th>
+			<th>&{'rank.losses'}</th>
+			<th>&{'rank.draws'}</th>
+			<th>&{'rank.score'}</th>
+			<th></th>
+		</tr>
 		</thead>
 	#{list rankings, as:'r'}
 		<tr>
@@ -16,8 +25,8 @@
 			<td>${r.wins}</td>
 			<td>${r.losses}</td>
 			<td>${r.draws}</td>
-			<td>${r.rank}</td>
-			<td>#{userChart user:r.user, size:"150x100" /}</td>
+			<td>${r.score}</td>
+			<td>#{userChart user:r.user, size:"150x100", c:'00' /}</td>
 		</tr>
 	#{/list}
 	</table>
