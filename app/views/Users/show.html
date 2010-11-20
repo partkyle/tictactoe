@@ -4,9 +4,11 @@
 <h3>Member since ${user.createdOn.since()}</h3>
 
 <table>
+	<thead>
 	<tr>
 		<th colspan="2">Record</th>
 	<tr>
+	</thead>
 #{list user.record, as:'r'}
 	<tr>
 		<td>${r.key}</td>
