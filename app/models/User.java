@@ -8,6 +8,8 @@ import java.util.TreeMap;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Transient;
@@ -23,13 +25,17 @@ public class User extends GenericModel {
 	public String password;
 	public Date createdOn = new Date();
 
+	@ManyToOne
+	@JoinColumn(name = "ranking_id")
+	public Ranking ranking;
+
 	@OneToMany(mappedBy = "user")
 	@OrderBy("createdOn")
 	public List<Game> games = new ArrayList<Game>();
 
 	@Transient
 	public Map<GameStatus, List<Game>> record;
-	
+
 	public User(String username, String email, String password) {
 		this.username = username;
 		this.email = email;

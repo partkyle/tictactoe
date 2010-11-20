@@ -4,13 +4,16 @@
 	<table>
 		<thead>
 		<tr>
-			<th colspan="4">Record</th>
+			<th colspan="7">Record</th>
 		<tr>
 		</thead>
 	#{list rankings, as:'r'}
 		<tr>
 			<td><img src="http://www.gravatar.com/avatar/${r.user.gravatarHash}" /></td>
 			<td>${r.user.username}</td>
+			<td>${r.wins}</td>
+			<td>${r.losses}</td>
+			<td>${r.draws}</td>
 			<td>${r.wins / (r.wins + r.losses + r.draws)}</td>
 			<td>#{userChart user:r.user, size:"150x100" /}</td>
 		</tr>
