@@ -8,6 +8,7 @@ import org.junit.Test;
 import play.test.FunctionalTest;
 
 public class GameControllerTest extends FunctionalTest {
+
 	@Test
 	public void testFindByStatus() {
 		List<Game> games = Game.find("byStatus", GameStatus.Incomplete).fetch();
