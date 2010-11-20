@@ -29,7 +29,7 @@ public class User extends GenericModel {
 
 	@Transient
 	public Map<GameStatus, List<Game>> record;
-
+	
 	public User(String username, String email, String password) {
 		this.username = username;
 		this.email = email;
