@@ -20,6 +20,9 @@ GET		/users/{username}						Users.show
 GET		/users/{username}/edit					Users.edit
 POST	/users/{username}/update				Users.update
 
+# Leaderboard
+GET		/Leaderboard							Leaderboard.show
+
 # Map static resources from the /app/public folder to the /public path
 GET		/public/								staticDir:public
 
