@@ -24,6 +24,13 @@ public class GameController extends Application {
 
 	public static void show(String gameId) {
 		Game game = Game.findById(gameId);
+		if (game == null) {
+			if (getLoggedIn() != null) {
+				Users.show(getLoggedInId());
+			} else {
+				Application.index();
+			}
+		}
 		if (game.user != null && !game.user.equals(getLoggedIn())) {
 			forbidden("You don't have access to that game.");
 		} else {
