@@ -1,12 +1,15 @@
 #{extends 'main.html' /}
 #{userHeader user:user /}
 #{if loggedIn && user.username == session.username}
-	#{if email == null}
+	#{if user.email == null}
 		<div class="notice clearfix">
 			<span class="clearfix">&{'nogravatar'}</span>
 			<a href="@{edit(user.username)}" class="button">&{'profile.edit'}</a>
 		</div>
 	#{/if}
+	#{else}
+		<a href="@{edit(user.username)}" class="button">&{'profile.edit'}</a>
+	#{/else}
 #{/if}
 #{if user.record.keySet().size() > 0}
 <table>
