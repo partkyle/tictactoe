@@ -3,12 +3,14 @@
 #
 submit = Submit
 
+# main links
 title = Tic Tac Toe
 newgame = New Game
 signup = Signup
 login = Login
 logout = Logout
 profile = Profile
+leaderboard = Leaderboard
 
 # signup page
 username = Username

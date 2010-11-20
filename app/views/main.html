@@ -11,16 +11,21 @@
 		<link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
 	</head>
 	<body>
-    	<div class="header clearfix">
-		#{if loggedIn}
-			<a href="@{Users.show(session.get('username'))}" class="button">&{'profile'}</a>
-			<a href="@{Application.logout}" class="button negative">&{'logout'}</a>
-		#{/if}
-		#{else}
-			<a href="@{Application.register}" class="button">&{'signup'}</a>
-			<a href="@{Application.index}" class="button">&{'login'}</a>
-		#{/else}
-		<a href="@{GameController.newGame}" class="button positive">&{'newgame'}</a>
+		<div class="header clearfix">
+			<div class="left">
+				<a href="@{Leaderboard.show}" class="button">&{'leaderboard'}</a>
+			</div>
+			<div class="right">
+				<a href="@{GameController.newGame}" class="button positive">&{'newgame'}</a>
+				#{if loggedIn}
+					<a href="@{Application.logout}" class="button negative">&{'logout'}</a>
+					<a href="@{Users.show(session.get('username'))}" class="button">&{'profile'}</a>
+				#{/if}
+				#{else}
+					<a href="@{Application.index}" class="button">&{'login'}</a>
+					<a href="@{Application.register}" class="button">&{'signup'}</a>
+				#{/else}
+			</div>
 		</div>
 		<div id="content">
 		#{doLayout /}
