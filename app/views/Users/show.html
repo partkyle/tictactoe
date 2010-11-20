@@ -23,12 +23,12 @@
 		<th colspan="2">Record</th>
 	<tr>
 	</thead>
-#{list user.record, as:'r'}
-	<tr>
-		<td>${r.key}</td>
-		<td>${r.value.size()}</td>
-	</tr>
-#{/list}
+	#{list user.record, as:'r'}
+		<tr>
+			<td>${r.key}</td>
+			<td>${r.value.size()}</td>
+		</tr>
+	#{/list}
 	<tr>
 		<td>Total</td>
 		<td>${user.games.size()}</td>
