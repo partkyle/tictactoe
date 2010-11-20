@@ -48,7 +48,7 @@ public class Application extends Controller {
 		Users.show(user.username);
 	}
 
-	public static void register(@Required @MinSize(5) String username, @Email String email, @Required @MinSize(5) String password, @Equals("password") String password2) {
+	public static void register(@Required @MinSize(4) String username, @Email String email, @Required @MinSize(4) String password, @Equals("password") String password2) {
 		if (User.find("username", username).first() != null)
 			validation.addError("username", "%s is already taken", username);
 		if (validation.hasErrors()) {
