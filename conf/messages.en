@@ -23,6 +23,8 @@ validation.required = %s is required.
 validation.minSize = %s must be at least %d characters long.
 validation.equals = %s must be the same as %s.
 
+nogames = You haven't played any games yet. Click "New Game" to play.
+
 movepermissions = You cannot make moves on another player's game.
 
 movetaken = INVALID MOVE - That move has already been made.
