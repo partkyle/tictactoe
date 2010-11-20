@@ -9,7 +9,9 @@
     	</ul>
     </div>
 #{/if}
-
+<div class="clearfix">
+	<a href="@{show(user.username)}" class="button">&{'backto'} &{'profile'}</a>
+</div>
 <form id="edit" action="@{update(user.username)}" method="POST">
 <fieldset>
 	<h2>Edit Account</h2>
