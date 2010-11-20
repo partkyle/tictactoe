@@ -51,7 +51,7 @@
 	#{list user.games, as:'game'}
 		<tr>
 			<td><a href="@{GameController.show(game.id)}">${game.status}</a></td>
-			<td>${game.createdOn.format('M/d/yyyy h:m a')}</td>
+			<td>${game.createdOn.format('M/d/yyyy h:mm a')}</td>
 			<td>#{game game:game /}</td>
 		</tr>
 	#{/list}
