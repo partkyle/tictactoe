@@ -9,8 +9,10 @@
 		</thead>
 	#{list rankings, as:'r'}
 		<tr>
-			<td><img src="http://www.gravatar.com/avatar/${r.user.gravatarHash}" /></td>
-			<td>${r.user.username}</td>
+			<td>
+				<img src="http://www.gravatar.com/avatar/${r.user.gravatarHash}?s=50" /> <br/>
+				${r.user.username}
+			</td>
 			<td>${r.wins}</td>
 			<td>${r.losses}</td>
 			<td>${r.draws}</td>
