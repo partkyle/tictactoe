@@ -95,6 +95,11 @@ div#log ul {
 	list-style: none;
 }
 
+table#game_list table.tictac {
+	width: auto;
+	float: right
+}
+
 table#game_list table.tictac td {
 	padding: 25px;
 }
