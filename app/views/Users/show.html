@@ -36,7 +36,7 @@
 </table>
 
 <div class="center">
-	<img src="http://chart.apis.google.com/chart?chs=300x225&chd=t:${user.recordValues.join(',')}&chco=${models.GameStatus.getColorURL(user.record.keySet())}&cht=p&chdl=${user.record.keySet().join('|')}" />
+	#{userChart user:user/}
 </div>
 #{/if}
 
