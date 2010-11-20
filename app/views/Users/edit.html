@@ -1,0 +1,29 @@
+#{extends 'main.html' /}
+#{userHeader user:user /}
+#{if errors}
+    <div class="error">
+    	<ul>
+    		#{errors}
+			<li>${error}</li>
+    		#{/errors}
+    	</ul>
+    </div>
+#{/if}
+
+<form id="edit" action="@{update(user.username)}" method="POST">
+<fieldset>
+	<h2>Edit Account</h2>
+	<p>
+		<label>&{'email'}</label> <br/>
+		<input type="text" name="email" value="${flash.email}" id="email" title="&{'email.help'}" />
+	</p>
+	<p>
+		<label>&{'password'}</label> <br/>
+		<input type="password" name="password" value="${flash.password}" id="password" title="&{'password.help'}"/>
+		<input type="password" name="password2" value="${flash.password2}" id="password2" title="&{'password2.help'}"/>
+	</p>
+	<p class="buttons">
+		<button type="submit" id="signupButton" class="button positive">&{'submit'}</button>
+	</p>
+</fieldset>	
+</form>

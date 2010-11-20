@@ -2,8 +2,9 @@
 #{userHeader user:user /}
 #{if loggedIn && user.username == session.username}
 	#{if email == null}
-		<div class="notice">
-			&{'nogravatar'}
+		<div class="notice clearfix">
+			<span class="clearfix">&{'nogravatar'}</span>
+			<a href="@{edit(user.username)}" class="button">&{'profile.edit'}</a>
 		</div>
 	#{/if}
 #{/if}

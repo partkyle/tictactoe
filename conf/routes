@@ -17,6 +17,8 @@ POST	/game/{gameId}/move						GameController.makeMove
 
 # Users
 GET		/users/{username}						Users.show
+GET		/users/{username}/edit					Users.edit
+POST	/users/{username}/update				Users.update
 
 # Map static resources from the /app/public folder to the /public path
 GET		/public/								staticDir:public
