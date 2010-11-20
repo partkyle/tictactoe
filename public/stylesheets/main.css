@@ -90,3 +90,7 @@ table.tictac td.Computer {
 	background-repeat: no-repeat;
 	background-position: center center;
 }
+
+table#game_list table.tictac td {
+	padding: 25px;
+}

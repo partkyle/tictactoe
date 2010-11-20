@@ -19,13 +19,19 @@
 	<tr>
 </table>
 
-<img src="http://chart.apis.google.com/chart?chs=300x100&chd=t:${user.recordValues.join(',')}&cht=p3&chl=${user.recordKeys.join('|')}" />
+<div class="center">
+	<img src="http://chart.apis.google.com/chart?chs=300x100&chd=t:${user.recordValues.join(',')}&cht=p3&chl=${user.recordKeys.join('|')}" />
+</div>
 
 #{if user.games.size() > 0}
 <h3>List of Games</h3>
-<ul>
+<table id="game_list">
 	#{list user.games, as:'game'}
-	    <li><a href="@{GameController.show(game.id)}">${game}</a></li>
+		<tr>
+			<td><a href="@{GameController.show(game.id)}">${game.status}</a><td>
+			<td class="nobr">${game.createdOn.format('M/d/yyyy h:m a')}</td>
+			<td>#{game game:game /}</td>
+		</tr>
 	#{/list}
-</ul>
+</table>
 #{/if}
