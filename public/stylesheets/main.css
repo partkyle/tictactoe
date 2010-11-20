@@ -91,6 +91,10 @@ table.tictac td.Computer {
 	background-position: center center;
 }
 
+div#log ul {
+	list-style: none;
+}
+
 table#game_list table.tictac td {
 	padding: 25px;
 }
