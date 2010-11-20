@@ -26,12 +26,19 @@
 #{if user.games.size() > 0}
 <h3>List of Games</h3>
 <table id="game_list">
+	<thead>
+		<tr>
+			<th colspan="3">List of Games</th>
+		</tr>
+	</thead>
+	<tbody>
 	#{list user.games, as:'game'}
 		<tr>
-			<td><a href="@{GameController.show(game.id)}">${game.status}</a><td>
+			<td><a href="@{GameController.show(game.id)}">${game.status}</a></td>
 			<td>${game.createdOn.format('M/d/yyyy h:m a')}</td>
 			<td>#{game game:game /}</td>
 		</tr>
 	#{/list}
+	</tbody>
 </table>
 #{/if}
