@@ -19,4 +19,10 @@ public class Ranking extends Model {
 	public Ranking(User user) {
 		this.user = user;
 	}
+
+	public long getRank() {
+		if (wins == 0 && losses == 0 && draws == 0)
+			return 0;
+		return (long) (((float) wins / (wins + losses + draws)) * 100);
+	}
 }
