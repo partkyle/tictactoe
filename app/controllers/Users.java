@@ -14,6 +14,8 @@ public class Users extends Application {
 
 	public static void show(String username) {
 		User user = User.findByUsername(username);
+		if (user == null)
+			Application.index();
 		render(user);
 	}
 
@@ -21,6 +23,8 @@ public class Users extends Application {
 		if (!username.equals(session.get("username")))
 			forbidden("You don't have access to that user.");
 		User user = User.findByUsername(username);
+		if (user == null)
+			Application.index();
 		render(user);
 	}
 
