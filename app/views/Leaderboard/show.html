@@ -1,7 +1,7 @@
 #{extends 'main.html' /}
 
 #{if rankings.size() > 0}
-	<table>
+	<table id="ranking">
 		<thead>
 		<tr>
 			<th>&{'rank.rank'}</th>
@@ -17,8 +17,9 @@
 		<tr>
 			<td>${r.rank}</td>
 			<td>
-				<img src="http://www.gravatar.com/avatar/${r.user.gravatarHash}?s=50" /> <br/>
-				${r.user.username}
+				<a href="@{Users.show(r.user.username)}"><img src="http://www.gravatar.com/avatar/${r.user.gravatarHash}?s=50" /></a>
+				<br/>
+				<a href="@{Users.show(r.user.username)}" class="noline">${r.user.username}</a>
 			</td>
 			<td>${r.wins}</td>
 			<td>${r.losses}</td>
