@@ -1,8 +1,15 @@
 #{extends 'main.html' /}
-
-<h1>${user.username}'s profile</h1>
-<h3>Member since ${user.createdOn.since()}</h3>
-
+<div class="clearfix">
+		<div class="left">
+			<h1>${user.username}'s profile</h1>
+		<h3>Member since ${user.createdOn.since()}</h3>
+	</div>
+	#{if user.email != null}
+	<div class="right">
+		<img src="http://www.gravatar.com/avatar/${user.gravatarHash}" />
+	</div>
+	#{/if}
+</div>
 #{if user.record.keySet().size() > 0}
 <table>
 	<thead>
