@@ -1,5 +1,6 @@
 package jobs;
 
+import java.util.Calendar;
 import java.util.List;
 
 import models.Game;
@@ -14,7 +15,9 @@ public class CleanEmptyGames extends Job {
 
 	public void doJob() {
 		Logger.info("Starting cleanup on empty games");
-		List<Game> games = Game.find("byStatus", GameStatus.Incomplete).fetch();
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.MINUTE, -10);
+		List<Game> games = Game.find("status = ? AND createdOn < ?", GameStatus.Incomplete, cal.getTime()).fetch();
 		for (Game game : games) {
 			if (game.moves.size() == 0)
 				game.delete();
