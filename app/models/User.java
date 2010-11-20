@@ -30,7 +30,7 @@ public class User extends GenericModel {
 	public Ranking ranking;
 
 	@OneToMany(mappedBy = "user")
-	@OrderBy("createdOn")
+	@OrderBy("createdOn DESC")
 	public List<Game> games = new ArrayList<Game>();
 
 	@Transient
