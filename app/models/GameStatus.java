@@ -13,11 +13,14 @@ public enum GameStatus {
 	}
 
 	public static String getColorURL(Collection<GameStatus> statuses) {
-		Iterator<GameStatus> iter = statuses.iterator();
-		String result = iter.next().color;
-		while (iter.hasNext()) {
-			result += "|" + iter.next().color;
+		if (statuses != null && statuses.size() > 0) {
+			Iterator<GameStatus> iter = statuses.iterator();
+			String result = iter.next().color;
+			while (iter.hasNext()) {
+				result += "|" + iter.next().color;
+			}
+			return result;
 		}
-		return result;
+		return null;
 	}
 }
