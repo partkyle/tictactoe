@@ -4,11 +4,9 @@
 			<h1>${user.username}'s profile</h1>
 		<h3>Member since ${user.createdOn.since()}</h3>
 	</div>
-	#{if user.email != null}
 	<div class="right">
-		<img src="http://www.gravatar.com/avatar/${user.gravatarHash}" />
+		<img src="http://www.gravatar.com/avatar/${user.gravatarHash}?f=y" />
 	</div>
-	#{/if}
 </div>
 #{if user.record.keySet().size() > 0}
 <table>

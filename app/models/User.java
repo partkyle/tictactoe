@@ -55,9 +55,12 @@ public class User extends GenericModel {
 		}
 		return values;
 	}
-	
+
 	public String getGravatarHash() {
-		return Codec.hexMD5(email);
+		if (email != null)
+			return Codec.hexMD5(email);
+		else
+			return null;
 	}
 
 	@Override
@@ -68,7 +71,7 @@ public class User extends GenericModel {
 		}
 		return false;
 	}
-	
+
 	public boolean checkPassword(String password) {
 		return this.password.equals(Codec.hexSHA1(password));
 	}
