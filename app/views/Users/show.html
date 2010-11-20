@@ -22,7 +22,7 @@
 </table>
 
 <div class="center">
-	<img src="http://chart.apis.google.com/chart?chs=300x225&chd=t:${user.recordValues.join(',')}&cht=p&chdl=${user.recordKeys.join('|')}" />
+	<img src="http://chart.apis.google.com/chart?chs=300x225&chd=t:${user.recordValues.join(',')}&chco=${models.GameStatus.getColorURL(user.recordKeys)}&cht=p&chdl=${user.recordKeys.join('|')}" />
 </div>
 
 #{if user.games.size() > 0}
