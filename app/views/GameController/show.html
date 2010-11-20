@@ -10,7 +10,7 @@
 #{/if}
 #{/set}
 
-<div class="game">
+<div class="game #{ifnot game.status.incomplete} done#{/ifnot}">
 
 #{game game:game/}
 
@@ -31,4 +31,11 @@
 	#{/ifnot}
 	</ul>
 </div>
+
+<div id="new" class="info clearfix">
+	<span class="clearfix">&{'game.over'}</span>
+	<a href="@{newGame}" class="button positive">&{'newgame'}</a>
 </div>
+
+</div>
+

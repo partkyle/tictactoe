@@ -30,14 +30,13 @@ $(function() {
 						li = $('<li>').text(i18n('winner', json.winner));
 						
 					$('#log > ul').append(li);
-					that.parents('table.tictac').addClass('done');
+					that.parents('table.tictac,div.game').addClass('done');
 				}
 			}
 		}, 'json');
 	});
 	
 	$('table.done td').live('click', function() {
-		alert('The game is finished - Click new game to start a new one');
 	});
 
 });

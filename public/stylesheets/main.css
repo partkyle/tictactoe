@@ -96,6 +96,14 @@ div#log ul {
 	list-style: none;
 }
 
+div#new {
+	display: none;
+	text-align: left;
+}
+div.done div#new {
+	display: block;
+}
+
 table#game_list table.tictac {
 	width: auto;
 	float: right

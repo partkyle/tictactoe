@@ -42,11 +42,13 @@ rank.losses = Losses
 rank.draws = Draws
 rank.score = Score
 
+# games
 movepermissions = You cannot make moves on another player's game.
 
 movetaken = INVALID MOVE - That move has already been made.
 winner = Game over. %s is the winner!
 draw = Cat's game. No winner, No loser... :(
+game.over = The game is finished. Play again!
 
 # entities
 move = Move(%s): %d, %d
