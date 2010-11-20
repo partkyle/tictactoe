@@ -27,7 +27,7 @@ public class User extends GenericModel {
 	public List<Game> games = new ArrayList<Game>();
 
 	@Transient
-	Map<GameStatus, List<Game>> record;
+	public Map<GameStatus, List<Game>> record;
 
 	public User(String username, String password) {
 		this.username = username;
