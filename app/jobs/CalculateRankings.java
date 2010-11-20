@@ -31,6 +31,7 @@ public class CalculateRankings extends Job {
 			if (record.get(GameStatus.Draw) != null)
 				rank.draws = record.get(GameStatus.Draw).size();
 
+			rank.calculateRank();
 			rank.save();
 		}
 	}

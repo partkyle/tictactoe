@@ -12,6 +12,8 @@ public class Ranking extends Model {
 	public long losses = 0;
 	public long draws = 0;
 
+	public double rank = 0.0;
+
 	@OneToOne
 	@JoinColumn(name = "user_username")
 	public User user;
@@ -20,9 +22,10 @@ public class Ranking extends Model {
 		this.user = user;
 	}
 
-	public long getRank() {
+	public void calculateRank() {
 		if (wins == 0 && losses == 0 && draws == 0)
-			return 0;
-		return (long) (((float) wins / (wins + losses + draws)) * 100);
+			rank = 0;
+		else
+			rank = (((float) wins / (wins + losses + draws)) * 100);
 	}
 }

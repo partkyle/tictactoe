@@ -7,7 +7,7 @@ import models.Ranking;
 public class Leaderboard extends Application {
 
 	public static void show() {
-		List<Ranking> rankings = Ranking.findAll();
+		List<Ranking> rankings = Ranking.find("order by rank desc").fetch();
 		render(rankings);
 	}
 
