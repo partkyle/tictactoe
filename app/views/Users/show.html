@@ -10,7 +10,9 @@
 	#{else}
 		<div class="clearfix">
 			<a href="@{edit(user.username)}" class="button">&{'profile.edit'}</a>
-			<a href="@{GameController.newGame()}" class="button positive">&{'newgame'}</a>
+			#{if user.games.size() > 0}
+				<a href="@{GameController.newGame()}" class="button positive">&{'newgame'}</a>
+			#{/if}
 		</div>
 	#{/else}
 #{/if}
