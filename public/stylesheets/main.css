@@ -11,6 +11,10 @@ div.header {
 	background: -moz-linear-gradient(top,  #6B8FD4,  #4575D4); /* for firefox 3.6+ */
 }
 
+div.header div.left {
+	margin-left: 0.5em;
+}
+
 form {
 	background-color: #dedede;	
 }
