@@ -13,15 +13,6 @@ import util.TicTacToeAI;
 
 public class GameController extends Application {
 
-	public static void show(String gameId) {
-		Game game = Game.findById(gameId);
-		if (game.user != null && !game.user.equals(getLoggedIn())) {
-			forbidden("You don't have access to that game.");
-		} else {
-			render(game);
-		}
-	}
-
 	public static void newGame() {
 		Game game = new Game();
 		User loggedIn = getLoggedIn();
@@ -29,6 +20,15 @@ public class GameController extends Application {
 			game.user = loggedIn;
 		game.save();
 		show(game.id);
+	}
+
+	public static void show(String gameId) {
+		Game game = Game.findById(gameId);
+		if (game.user != null && !game.user.equals(getLoggedIn())) {
+			forbidden("You don't have access to that game.");
+		} else {
+			render(game);
+		}
 	}
 
 	public static void makeMove(String gameId, Move m) {
