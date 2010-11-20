@@ -31,11 +31,7 @@ public class GameController extends Application {
 				Application.index();
 			}
 		}
-		if (game.user != null && !game.user.equals(getLoggedIn())) {
-			forbidden("You don't have access to that game.");
-		} else {
-			render(game);
-		}
+		render(game);
 	}
 
 	public static void makeMove(String gameId, Move m) {
