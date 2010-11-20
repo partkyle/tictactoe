@@ -1,6 +1,4 @@
 $(function() {
-	if ('last-child' in document.createElement('td').style)
-		alert (1);
 	// td:hover in a cross-browser manner
 	$('table.tictac:not(.done) td:not(.Player):not(.Computer)').live('mouseenter', function() {
 		$(this).addClass('hover');
