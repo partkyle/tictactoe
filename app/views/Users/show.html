@@ -8,6 +8,13 @@
 		<img src="http://www.gravatar.com/avatar/${user.gravatarHash}?f=y" />
 	</div>
 </div>
+#{if loggedIn && user.username == session.username}
+	#{if email == null}
+		<div class="notice">
+			&{'nogravatar'}
+		</div>
+	#{/if}
+#{/if}
 #{if user.record.keySet().size() > 0}
 <table>
 	<thead>
