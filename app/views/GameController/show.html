@@ -2,10 +2,12 @@
 #{set title: 'Tic Tac Toe' /}
 #{set 'moreScripts'}
 #{i18n /}
-<script type="text/javascript">
-	var moveUrl = '@{makeMove(game.id)}';
-</script>
-#{script 'tictactoe.js' /}
+#{if game.user.username == session.username}
+	<script type="text/javascript">
+		var moveUrl = '@{makeMove(game.id)}';
+	</script>
+	#{script 'tictactoe.js' /}
+#{/if}
 #{/set}
 
 <div class="game">
