@@ -40,7 +40,7 @@ public class Application extends Controller {
 	public static void authenticate(String username, String password) {
 		User user = User.findByUsername(username);
 		if (user == null || !user.checkPassword(password)) {
-			flash.error("Bad username or password");
+			flash.error(Messages.get("badlogin"));
 			flash.put("username", username);
 			index();
 		}
