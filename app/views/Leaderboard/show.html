@@ -6,13 +6,13 @@
 			#{if page > 1}
 				<a href="@{show(page-1)}">&{'prev'}</a>
 			#{/if}
-			#{if count > (page - 1) * 0 + pageSize - 1}
+			#{if count > (page - 1) * pageSize + pageSize - 1}
 				<a href="@{show(page+1)}">&{'next'}</a>
 			#{/if}
 		</div>
 		<div class="right">
-			#{if count > (page - 1) * 0 + pageSize - 1}
-			&{'pagination', 'ranks', (page - 1) * pageSize + 1, (page - 1) * 0 + pageSize - 1 + 1, count}
+			#{if count > (page - 1) * pageSize + pageSize - 1}
+			&{'pagination', 'ranks', (page - 1) * pageSize + 1, (page - 1) * pageSize + pageSize - 1 + 1, count}
 			#{/if}
 			#{else}
 			&{'pagination', 'ranks', (page - 1) * pageSize + 1, count, count}

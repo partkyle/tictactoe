@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
+import javax.persistence.Table;
 
 import play.Logger;
 import play.db.jpa.Model;
@@ -19,6 +20,7 @@ import play.i18n.Messages;
 import play.libs.Codec;
 
 @Entity
+@Table(name = "game")
 public class Game extends Model {
 	public String uuid = Codec.UUID();
 	public Date createdOn = new Date();

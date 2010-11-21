@@ -8,11 +8,13 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import play.db.jpa.Model;
 import play.i18n.Messages;
 
 @Entity
+@Table(name = "move")
 public class Move extends Model {
 	public int x;
 	public int y;

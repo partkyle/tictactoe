@@ -10,12 +10,14 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.OrderBy;
+import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import play.db.jpa.Model;
 import play.libs.Codec;
 
 @Entity
+@Table(name = "user")
 public class User extends Model {
 	public String username;
 	public String email;
