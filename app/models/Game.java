@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import play.Logger;
 import play.db.jpa.GenericModel;
 import play.i18n.Messages;
 import play.libs.Codec;
@@ -41,14 +42,14 @@ public class Game extends GenericModel {
 
 	public boolean addMove(Move move) {
 		if (moves.size() >= 9) {
-			System.out.println("The game is finished");
+			Logger.debug("The game is finished");
 			return false;
 		} else if (!moves.contains(move)) {
 			moves.add(move);
 			move.game = this;
 			return true;
 		} else {
-			System.out.println("Ignored duplicate move");
+			Logger.debug("Ignored duplicate move");
 			return false;
 		}
 	}
