@@ -7,15 +7,16 @@ $(function() {
 	});
 	
 	$('table.tictac:not(.done) td').live('click', function() {
-		var that = $(this).removeClass('hover');
+		var that = $(this).removeClass('hover').addClass('Player');
 		$.post(moveUrl, {'m.x': that.data('x'), 'm.y': that.data('y')}, function(json) {
 			if (!json.validMove) {
+				that.removeClass('Player');
 				$('#log > ul').append('<li>'+json.message+'</li>');
 			} else {
 				$.each(json.state, function(y, val){
 					$.each(val, function(x, className){
 						if (className != null) {
-							$('td[data-x='+x+'][data-y='+y+']').addClass(className);
+							$('td[data-x='+x+'][data-y='+y+']').removeClass('hover').addClass(className);
 						}
 					});
 				});
