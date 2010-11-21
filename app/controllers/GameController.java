@@ -15,7 +15,7 @@ public class GameController extends Application {
 
 	public static void newGame() {
 		Game game = new Game();
-		User loggedIn = getLoggedIn();
+		User loggedIn = getLoggedInUser();
 		if (loggedIn != null)
 			game.user = loggedIn;
 		game.save();
@@ -25,7 +25,7 @@ public class GameController extends Application {
 	public static void show(String uuid) {
 		Game game = Game.findByUuid(uuid);
 		if (game == null) {
-			if (getLoggedIn() != null) {
+			if (isLoggedIn()) {
 				Users.show(getLoggedInId());
 			} else {
 				Application.index();
@@ -37,7 +37,7 @@ public class GameController extends Application {
 	public static void makeMove(String uuid, Move m) {
 		Game game = Game.findByUuid(uuid);
 		GameState gameState = new GameState();
-		if (game.user != null && !game.user.equals(getLoggedIn())) {
+		if (game.user != null && !game.user.equals(getLoggedInUser())) {
 			gameState.validMove = false;
 			gameState.message = Messages.get("movepermissions");
 		} else if (TicTacToeAI.isStillPlaying(game.getState())) {

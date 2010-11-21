@@ -13,21 +13,21 @@ public class Application extends Controller {
 
 	@Before
 	static void before() {
-		if (getLoggedIn() != null) {
+		if (isLoggedIn()) {
 			renderArgs.put("loggedIn", true);
-			renderArgs.put("username", getLoggedIn().username);
+			renderArgs.put("username", getLoggedInUser().username);
 		}
 	}
 
 	public static void index() {
-		if (getLoggedIn() != null)
+		if (isLoggedIn())
 			Users.show(getLoggedInId());
 		else
 			render();
 	}
 
 	public static void logout() {
-		if (getLoggedIn() != null)
+		if (isLoggedIn())
 			flash.success(Messages.get("message.loggedout"));
 		session.clear();
 		index();
@@ -62,11 +62,15 @@ public class Application extends Controller {
 		Users.show(user.username);
 	}
 
-	public static String getLoggedInId() {
+	protected static boolean isLoggedIn() {
+		return getLoggedInUser() != null;
+	}
+
+	protected static String getLoggedInId() {
 		return session.get("username");
 	}
 
-	public static User getLoggedIn() {
+	protected static User getLoggedInUser() {
 		return User.findByUsername(getLoggedInId());
 	}
 }
