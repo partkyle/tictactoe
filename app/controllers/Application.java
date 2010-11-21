@@ -1,6 +1,7 @@
 package controllers;
 
 import models.User;
+import play.Play;
 import play.data.validation.Email;
 import play.data.validation.Equals;
 import play.data.validation.MinSize;
@@ -11,12 +12,15 @@ import play.mvc.Controller;
 
 public class Application extends Controller {
 
+	static Integer pageSize = Integer.parseInt(Play.configuration.getProperty("forum.pageSize", "10"));
+
 	@Before
 	static void before() {
 		if (isLoggedIn()) {
 			renderArgs.put("loggedIn", true);
 			renderArgs.put("username", getLoggedInUser().username);
 		}
+		renderArgs.put("pageSize", pageSize);
 	}
 
 	public static void index() {
