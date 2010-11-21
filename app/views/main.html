@@ -29,6 +29,11 @@
 			</div>
 		</div>
 		<div id="content">
+		#{if flash.success}
+			<div class="success">
+				${flash.success}
+			</div>
+		#{/if}
 		#{doLayout /}
 		</div>
 		<script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
