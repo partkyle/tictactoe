@@ -51,9 +51,11 @@ rank.losses = Losses
 rank.draws = Draws
 rank.score = Score
 
-# games
+# permissions
 permissions.move = You cannot make moves on another player's game.
+permissions.user = You don't have access to that user.
 
+# game
 movetaken = INVALID MOVE - That move has already been made.
 winner = Game over. %s is the winner!
 draw = Cat's game. No winner, No loser... :(

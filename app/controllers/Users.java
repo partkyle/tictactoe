@@ -1,5 +1,7 @@
 package controllers;
 
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
+
 import models.User;
 import play.data.validation.Email;
 import play.data.validation.Equals;
@@ -21,7 +23,7 @@ public class Users extends Application {
 
 	public static void edit(String username) {
 		if (!username.equals(getLoggedInId()))
-			forbidden("You don't have access to that user.");
+			forbidden(Messages.get("permissions.user"));
 		User user = User.findByUsername(username);
 		if (user == null)
 			Application.index();
@@ -30,7 +32,7 @@ public class Users extends Application {
 
 	public static void update(String username, @Email String email, String password, @Equals("password") String password2) {
 		if (!username.equals(getLoggedInId()))
-			forbidden("You don't have access to that user.");
+			forbidden(Messages.get("permissions.user"));
 		if (validation.hasErrors()) {
 			validation.keep();
 			flash.put("email", email);
