@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -14,6 +16,7 @@ import play.i18n.Messages;
 public class Move extends Model {
 	public int x;
 	public int y;
+	public Date createdOn = new Date();
 
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
