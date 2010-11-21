@@ -2,6 +2,9 @@ package models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import play.db.jpa.Model;
@@ -13,9 +16,11 @@ public class Move extends Model {
 	public int y;
 
 	@Column(nullable = false)
+	@Enumerated(EnumType.STRING)
 	public Player player = Player.Player;
 
 	@ManyToOne(optional = false)
+	@JoinColumn(name = "game_id")
 	public Game game;
 
 	public Move() {}

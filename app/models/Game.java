@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -19,6 +21,8 @@ public class Game extends GenericModel {
 	@Id
 	public String id = Codec.UUID();
 	public Date createdOn = new Date();
+
+	@Enumerated(EnumType.STRING)
 	public GameStatus status = GameStatus.Incomplete;
 
 	@ManyToOne
