@@ -34,7 +34,7 @@ public class CalculateRankings extends Job {
 			rank.save();
 		}
 
-		List<Ranking> rankings = Ranking.find("order by score desc").fetch();
+		List<Ranking> rankings = Ranking.find("order by score desc, user.createdOn").fetch();
 		long rankOrder = 1;
 		for (Ranking rank : rankings) {
 			rank.rank = rankOrder++;
