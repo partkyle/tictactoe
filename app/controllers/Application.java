@@ -57,6 +57,7 @@ public class Application extends Controller {
 			signup();
 		}
 		User user = new User(username, email, password).save();
+		flash.success(Messages.get("message.newuser", username));
 		session.put("username", user.username);
 		Users.show(user.username);
 	}
