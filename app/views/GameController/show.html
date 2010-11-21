@@ -2,7 +2,7 @@
 #{set title: 'Tic Tac Toe' /}
 #{set 'moreScripts'}
 #{i18n /}
-#{if game.user.username == session.username}
+#{if loggedIn && game.user.username == session.username}
 	<script type="text/javascript">
 		var moveUrl = '@{makeMove(game.id)}';
 	</script>
