@@ -7,19 +7,17 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Transient;
 
-import play.db.jpa.GenericModel;
+import play.db.jpa.Model;
 import play.libs.Codec;
 
 @Entity
-public class User extends GenericModel {
-	@Id
+public class User extends Model {
 	public String username;
 	public String email;
 	public String password;

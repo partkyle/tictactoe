@@ -21,7 +21,7 @@ public class Ranking extends Model {
 	public double score = 0.0;
 
 	@OneToOne
-	@JoinColumn(name = "user_username")
+	@JoinColumn(name = "user_id")
 	public User user;
 
 	public Ranking(User user) {
