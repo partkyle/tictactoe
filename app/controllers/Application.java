@@ -1,15 +1,13 @@
 package controllers;
 
-import play.*;
+import models.User;
 import play.data.validation.Email;
 import play.data.validation.Equals;
 import play.data.validation.MinSize;
 import play.data.validation.Required;
-import play.mvc.*;
-
-import java.util.*;
-
-import models.*;
+import play.i18n.Messages;
+import play.mvc.Before;
+import play.mvc.Controller;
 
 public class Application extends Controller {
 
@@ -29,6 +27,8 @@ public class Application extends Controller {
 	}
 
 	public static void logout() {
+		if (getLoggedIn() != null)
+			flash.success(Messages.get("message.loggedout"));
 		session.clear();
 		index();
 	}
