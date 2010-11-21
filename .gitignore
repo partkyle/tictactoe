@@ -5,3 +5,5 @@ eclipse/
 tmp/
 test-result/
 db/
+logs/
+precompiled/
