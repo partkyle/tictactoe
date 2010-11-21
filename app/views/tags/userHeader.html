@@ -1,7 +1,7 @@
 <div class="clearfix">
 		<div class="left">
-			<h1>${_user.username}'s profile</h1>
-		<h3>Member since ${_user.createdOn.since()}</h3>
+			<h1>&{'profile.header', _user.username}</h1>
+		<h3>&{'profile.membersince', _user.createdOn.since()}</h3>
 	</div>
 	<div class="right">
 		<img src="http://www.gravatar.com/avatar/${_user.gravatarHash}" />
