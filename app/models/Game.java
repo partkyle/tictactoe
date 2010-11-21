@@ -11,6 +11,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import play.Logger;
 import play.db.jpa.Model;
@@ -29,6 +30,7 @@ public class Game extends Model {
 	public User user;
 
 	@OneToMany(mappedBy = "game", cascade = { CascadeType.ALL })
+	@OrderBy("createdOn")
 	public List<Move> moves = new ArrayList<Move>();
 
 	public Player[][] getState() {
@@ -65,7 +67,7 @@ public class Game extends Model {
 	public static Game findByUuid(String uuid) {
 		return find("byUuid", uuid).first();
 	}
-	
+
 	@Override
 	public String toString() {
 		return Messages.get("game", status, createdOn);
