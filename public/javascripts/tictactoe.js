@@ -12,6 +12,13 @@ $(function() {
 			if (!json.validMove) {
 				that.removeClass('Player');
 				$('#log > ul').append('<li>'+json.message+'</li>');
+				$.each(json.state, function(y, val){
+                                        $.each(val, function(x, className){                                                if (className != null) {
+                                                        $('td[data-x='+x+'][data-y='+y+']').removeClass('hover').addClass(className);
+                                                }
+                                        });
+                                });
+
 			} else {
 				$.each(json.state, function(y, val){
 					$.each(val, function(x, className){
