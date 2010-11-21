@@ -31,4 +31,28 @@ public class Ranking extends Model {
 	public void calculateRank() {
 		score = (wins * SCORE_WIN) + (draws * SCORE_DRAW) - (losses * SCORE_LOSS);
 	}
+
+	public List<Long> getData() {
+		List<Long> result = new ArrayList<Long>();
+		if (wins > 0)
+			result.add(wins);
+		if (losses > 0)
+			result.add(losses);
+		if (draws > 0)
+			result.add(draws);
+
+		return result;
+	}
+
+	public List<GameStatus> getLabels() {
+		List<GameStatus> result = new ArrayList<GameStatus>();
+		if (wins > 0)
+			result.add(GameStatus.Win);
+		if (losses > 0)
+			result.add(GameStatus.Loss);
+		if (draws > 0)
+			result.add(GameStatus.Draw);
+
+		return result;
+	}
 }

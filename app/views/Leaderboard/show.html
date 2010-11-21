@@ -25,7 +25,7 @@
 			<td>${r.losses}</td>
 			<td>${r.draws}</td>
 			<td>${r.score}</td>
-			<td>#{userChart user:r.user, size:"150x100", type:"p" /}</td>
+			<td>#{userChart user:r.user, size:"150x100", type:"p", data:r.data, labels:r.labels /}</td>
 		</tr>
 	#{/list}
 	</table>
