@@ -31,7 +31,7 @@ public class Users extends Application {
 	public static void update(String username, @Email String email, String password, @Equals("password") String password2) {
 		if (validation.hasErrors()) {
 			validation.keep();
-			params.flash();
+			flash.put("email", email);
 			edit(username);
 		}
 		if (!username.equals(getLoggedInId()))
