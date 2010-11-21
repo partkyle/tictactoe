@@ -7,7 +7,9 @@ backto = Back to
 # main links
 title = Tic Tac Toe
 newgame = New Game
+newgame.full = Play a new game
 signup = Signup
+signup.full = Sign up for an account
 login = Login
 logout = Logout
 profile = Profile
