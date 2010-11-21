@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
+@Table(name = "ranking")
 public class Ranking extends Model {
 
 	public static double SCORE_WIN = 2;
