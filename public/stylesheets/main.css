@@ -121,6 +121,6 @@ table#game_list table.tictac td.Computer {
 	background-image: url(/public/images/o_small.png)
 }
 
-table#ranking tr td {
+table#ranking tr td, table#ranking tr th {
 	text-align: center;
 }
