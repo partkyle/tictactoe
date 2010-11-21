@@ -26,6 +26,9 @@ password.help = Enter your desired password twice. It must be at least 5 charact
 password2 = Confirm Password
 password2.help = This must match the other entered password.
 
+# login
+anonymous = Note: anonymous games are not protected.
+
 # validation
 validation.required = %s is required.
 validation.minSize = %s must be at least %d characters long.
