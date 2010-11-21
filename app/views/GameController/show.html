@@ -19,13 +19,13 @@
 	#{list game.moves, as:'move'}
 		<li>${move}</li>
 	#{/list}
-	#{ifnot util.TicTacToeAI.isStillPlaying(game.state)}
+	#{ifnot game.status.incomplete}
 		<li>
-		#{if util.TicTacToeAI.getWinner(game.state) == null}
+		#{if game.status.draw}
 		    &{'draw'}
 		#{/if}
 		#{else}
-			&{'winner', game.winner}
+			&{'winner', util.TicTacToeAI.getWinner(game.state)}
 		#{/else}
 		</li>
 	#{/ifnot}

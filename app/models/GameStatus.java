@@ -23,8 +23,13 @@ public enum GameStatus {
 		}
 		return null;
 	}
-	
+
 	public boolean isIncomplete() {
 		return this == GameStatus.Incomplete;
 	}
+
+	public boolean isDraw() {
+		return this == GameStatus.Draw;
+	}
+
 }
