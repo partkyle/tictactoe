@@ -21,7 +21,8 @@ GET		/users/{username}/edit					Users.edit
 POST	/users/{username}/update				Users.update
 
 # Leaderboard
-GET		/ranks									Leaderboard.show
+GET		/ranks									Leaderboard.index
+GET		/ranks/{page}							Leaderboard.show
 
 # Map static resources from the /app/public folder to the /public path
 GET		/public/								staticDir:public

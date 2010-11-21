@@ -4,6 +4,10 @@
 submit = Submit
 backto = Back to
 
+pagination = Showing %s %d - %d of %d
+next = Next
+prev = Previous
+
 # main links
 title = Tic Tac Toe
 newgame = New Game
