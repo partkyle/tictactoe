@@ -37,11 +37,15 @@ public class Users extends Application {
 			edit(username);
 		}
 		User user = User.findByUsername(username);
-		user.email = email;
-		if (password != null)
+		if (user.email != null && !user.email.equals(email)) {
+			user.email = email;
+			flash.success(Messages.get("profile.saveemail"));
+		}
+		if (password != null && password.trim().length() > 0) {
 			user.password = Codec.hexSHA1(password);
+			flash.success(Messages.get("profile.savepassword"));
+		}
 		user.save();
 		show(user.username);
 	}
-
 }
