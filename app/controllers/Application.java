@@ -53,6 +53,7 @@ public class Application extends Controller {
 	}
 
 	public static void register(@Required @MinSize(4) String username, @Email String email, @Required @MinSize(4) String password, @Equals("password") String password2) {
+		username = username == null ? null : username.replaceAll("(\\?|#|&|/|\\\\|\\|)", "-");
 		if (User.find("username", username).first() != null)
 			validation.addError("username", "validation.unique", username);
 		if (validation.hasErrors()) {
