@@ -31,11 +31,12 @@
 	#{/ifnot}
 	</ul>
 </div>
-
-<div id="new" class="info clearfix">
-	<span class="clearfix">&{'game.over'}</span>
-	<a href="@{newGame}" class="button positive">&{'newgame'}</a>
-</div>
+#{if loggedIn && session.username == game.user.username}
+	<div id="new" class="info clearfix">
+		<span class="clearfix">&{'game.over'}</span>
+		<a href="@{newGame}" class="button positive">&{'newgame'}</a>
+	</div>
+#{/if}
 
 </div>
 
