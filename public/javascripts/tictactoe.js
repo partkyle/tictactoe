@@ -37,7 +37,4 @@ $(function() {
 		}, 'json');
 	});
 	
-	$('table.done td').live('click', function() {
-	});
-
 });
