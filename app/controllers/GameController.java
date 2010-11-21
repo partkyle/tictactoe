@@ -39,7 +39,7 @@ public class GameController extends Application {
 		GameState gameState = new GameState();
 		if (game.user != null && !game.user.equals(getLoggedInUser())) {
 			gameState.validMove = false;
-			gameState.message = Messages.get("movepermissions");
+			gameState.message = Messages.get("permissions.move");
 		} else if (TicTacToeAI.isStillPlaying(game.getState())) {
 			if (game.addMove(m)) {
 				gameState.moveLog.add(m.toString());
