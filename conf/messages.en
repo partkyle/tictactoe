@@ -13,6 +13,9 @@ logout = Logout
 profile = Profile
 leaderboard = Leaderboard
 
+message.loggedout = You have been successfully logged out.
+message.newuser = Congratulations %s! Your account has been created.
+
 # signup page
 username = Username
 username.help = Enter a username with at least 5 characters.
