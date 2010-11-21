@@ -40,7 +40,7 @@ public class Application extends Controller {
 	public static void authenticate(String username, String password) {
 		User user = User.findByUsername(username);
 		if (user == null || !user.checkPassword(password)) {
-			flash.error("Bad username or bad password");
+			flash.error("Bad username or password");
 			flash.put("username", username);
 			index();
 		}
@@ -54,7 +54,6 @@ public class Application extends Controller {
 		if (validation.hasErrors()) {
 			validation.keep();
 			params.flash();
-			flash.error("Please correct these errors !");
 			signup();
 		}
 		User user = new User(username, email, password).save();

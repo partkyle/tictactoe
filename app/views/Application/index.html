@@ -1,6 +1,12 @@
 #{extends 'main.html' /}
 #{set title:'Tic Tac Toe' /}
 
+#{if flash.error}
+	<div class="error">
+		${flash.error}
+	</div>
+#{/if}
+
 <form id="login" action="@{Application.authenticate}" method="POST">
 <fieldset>
 	<h2>&{'login'}</h2>
