@@ -4,7 +4,7 @@
 #{i18n /}
 #{if !loggedIn || game.user == null || game.user.username == session.username}
 	<script type="text/javascript">
-		var moveUrl = '@{makeMove(game.id)}';
+		var moveUrl = '@{makeMove(game.uuid)}';
 	</script>
 	#{script 'tictactoe.js' /}
 #{/if}

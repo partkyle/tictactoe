@@ -13,14 +13,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import play.Logger;
-import play.db.jpa.GenericModel;
+import play.db.jpa.Model;
 import play.i18n.Messages;
 import play.libs.Codec;
 
 @Entity
-public class Game extends GenericModel {
-	@Id
-	public String id = Codec.UUID();
+public class Game extends Model {
+	public String uuid = Codec.UUID();
 	public Date createdOn = new Date();
 
 	@Enumerated(EnumType.STRING)
@@ -63,8 +62,13 @@ public class Game extends GenericModel {
 		return false;
 	}
 
+	public static Game findByUuid(String uuid) {
+		return find("byUuid", uuid).first();
+	}
+	
 	@Override
 	public String toString() {
 		return Messages.get("game", status, createdOn);
 	}
+
 }

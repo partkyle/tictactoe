@@ -19,11 +19,11 @@ public class GameController extends Application {
 		if (loggedIn != null)
 			game.user = loggedIn;
 		game.save();
-		show(game.id);
+		show(game.uuid);
 	}
 
-	public static void show(String gameId) {
-		Game game = Game.findById(gameId);
+	public static void show(String uuid) {
+		Game game = Game.findByUuid(uuid);
 		if (game == null) {
 			if (getLoggedIn() != null) {
 				Users.show(getLoggedInId());
@@ -34,8 +34,8 @@ public class GameController extends Application {
 		render(game);
 	}
 
-	public static void makeMove(String gameId, Move m) {
-		Game game = Game.findById(gameId);
+	public static void makeMove(String uuid, Move m) {
+		Game game = Game.findByUuid(uuid);
 		GameState gameState = new GameState();
 		if (game.user != null && !game.user.equals(getLoggedIn())) {
 			gameState.validMove = false;
