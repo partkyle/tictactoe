@@ -12,8 +12,8 @@ POST	/login									Application.authenticate
 GET		/logout									Application.logout
 
 # Games
-GET		/game/{gameId}							GameController.show
-POST	/game/{gameId}/move						GameController.makeMove
+GET		/game/{uuid}							GameController.show
+POST	/game/{uuid}/move						GameController.makeMove
 
 # Users
 GET		/users/{username}						Users.show
